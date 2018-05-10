@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var arr1=[{name:"AA",age:12},{name:"FF",age:31},{name:"NN",age:19},{name:"PP",age:26},{name:"SS",age:52}];
+
+    //1.找出数组中的name是"PP"的将其age变成24
+
+    // for (var i=0;i<arr1.length;i++){
+    //   if(arr1[i].name=="PP"){
+    //     arr1[i].age=24
+    //   }
+    // }
+
+    // for (let [index,item] of arr1.entries()){
+    //   if(item.name=="PP"){
+    //     arr1[index].age=24
+    //   }
+    // }
+
+    // arr1.forEach(function (item,index) {
+    //   if(item.name=="PP"){
+    //     arr1[index].age=24;
+    //   }
+    // });
+
+    var index=arr1.findIndex(function (item,index) {
+      return item.name=="PP";
+    });
+    //arr1[index].age=24;
+
+    //2.找出数组中的name是"PP"的将其删除
+    //splice(i,1):删除数组索引为i的那一项
+    //arr1.splice(index,1);
+    //console.log(arr1);
+
+    //3.找出数组中的年龄大于30的组成新的数组
+
+    var arr2=arr1.filter(function (item,index) {
+      return item.age>30;
+    });
+    console.log(arr2);
+
+</script>

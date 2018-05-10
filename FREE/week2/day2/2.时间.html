@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<h1 id="getDate"></h1>
+</body>
+</html>
+<script>
+  let ary = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+
+  function fn() {
+    //new Date 使用构造函数方式创建
+    //获取本地的当前时间
+    //let time=new Date  Date后面加不加()都可以
+    let time = new Date();//标准时间格式
+    //Wed Apr 25 2018 10:20:04 GMT+0800 (中国标准时间)
+    //获取四位的年 2018
+    let year = time.getFullYear();
+    //获取月 0-11
+    let month = time.getMonth();
+    //获取星期 0-6 星期天-星期六
+    let week = time.getDay();
+    //获取日
+    let day = time.getDate();
+    //获取小时
+    let hours = time.getHours();
+    //获取分钟
+    let minutes = time.getMinutes();
+    //获取秒
+    let seconds = time.getSeconds();
+    //2018年4月25日 星期三 10:30:45
+    let str = `${year}-${month+1}-${day} ${ary[week]} ${hours}:${minutes}:${seconds}`;
+    getDate.innerHTML = str;
+  }
+  fn();
+  setInterval(fn,1000);
+
+
+  //在${}中可以写简单的运算表达式 比如计算,三元运算符
+
+  let sex=1;
+  let str1=`性别:${sex?'男':'女'}`;
+  console.log(str1);
+
+
+</script>

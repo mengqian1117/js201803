@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<button onclick="add()">+</button>
+<!--只要点击一次就会执行 一下add函数-->
+<ul id="list">
+    <li>我是老大</li>
+</ul>
+</body>
+</html>
+<script>
+    let list=document.getElementById("list");
+    //如果直接使用 =  会覆盖之前的内容
+    //list.innerHTML="<li>我是新来的</li>";
+
+    //使用+= 可以保留原来的 基础上在多拼接新的
+    //list.innerHTML+="<li>我是新来的</li>";
+    function add() {
+      list.innerHTML+="<li>我是新来的</li>";
+    }
+</script>

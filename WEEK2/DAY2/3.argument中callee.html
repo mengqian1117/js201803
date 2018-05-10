@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+arguments.callee:当前函数本身
+函数.prototype.constructor
+-->
+</body>
+</html>
+<script>
+    function f() {
+      console.log(arguments.callee==f.prototype.constructor);//true
+    }
+    f();
+
+
+    //递归 函数中自己调用自己
+
+    function sum(n) {
+      if(n==0)return n;
+      //return n+sum(n-1);
+      //return n+arguments.callee(n-1);
+      return n+sum.prototype.constructor(n-1);
+    }
+
+    console.log(sum(10));
+    //n=10    return 10+sum(9)
+    //n=9     return 10+9+sum(8)
+    //n=8     return 10+9+8+sum(7)
+    //....
+    //n=0     return 10+9+8+7+.....+0
+
+
+    var n=(function (n) {
+      if(n==0)return n;
+      return n+arguments.callee(n-1);
+      //console.log(arguments.callee);
+    })(10);
+    console.log(n);
+
+    //注意箭头函数没有arguments
+</script>

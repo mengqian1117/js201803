@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  /*
+f = function () {return true;};
+g = function () {return false;};
+(function () {
+  //变量提声: function g =undefined
+  if (g() && [] == ![]) {//报错g is not a function
+    f = function () {
+      return false;
+    };
+
+    function g() {
+      return true;
+    };
+  }
+})();
+f();
+g();
+*/
+
+
+  var number=2;
+  var obj={
+    number:4,
+    fn1:(function () {
+      this.number*=2;
+      number=number*2;
+      var number=3;
+      return function () {
+        this.number*=2;
+        number*=3;
+        alert(number);
+      }
+    })()
+  };
+  var fn1=obj.fn1;
+  alert(number);
+  fn1();
+  obj.fn1();
+  alert(window.number);
+  alert(obj.number);
+</script>

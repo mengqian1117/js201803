@@ -1,0 +1,1 @@
+console.log("node环境运行JS");

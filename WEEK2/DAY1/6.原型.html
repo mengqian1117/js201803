@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+类都是函数
+任何类都有一个天生自带的属性prototype叫做原型,这个原型(prototype)是一个对象,既然是对象就是引用数据类型 浏览器就会默认给他开辟一个堆内存,这个堆内存中有一个天生自带的属性叫constructor指向当前类本身,原型中存储的是公有的属性和方法
+
+任何一个对象(实例,prototype....)有一个属性__proto__,指向所属类的原型
+
+-->
+</body>
+</html>
+<script>
+  console.log(Array.prototype);
+
+  function Fn() {
+    this.n="nn";
+    this.f=function () {}
+  }
+  Fn.prototype.getF=function () {};
+
+  let f1=new Fn;
+  let f2=new Fn;
+
+  console.log(Fn.prototype.constructor.name);
+
+
+</script>

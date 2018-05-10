@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<h1>201803JS</h1>
+<div id="box">
+</div>
+</body>
+</html>
+<script>
+  //1.alert 弹窗  只有一个按钮 确定
+  //会阻止页面的加载   真实项目 上线之后不要有alert
+  //输出的内容是字符串 如果你写的不是字符串 默认调用一个方法 toString 将其变成字符串
+  //点击确定按钮 alert没有返回值 undefined
+  /*
+
+  alert("珠峰培训");
+  let arr=[1,2,3];
+  alert(arr);//"1,2,3"
+
+   let obj={name:"孟倩"};
+   alert(obj);//[object Object]
+   console.log(obj.toString());//[object Object]
+
+   let a=alert(1);
+   console.log(a);
+   */
+
+
+  //2.prompt  有输入框 2个按钮 确定/取消
+  //有返回值 确定->输入框中的内容   取消->null
+  //let r=prompt("你确定吗");
+  //console.log(r);
+
+  //3.confirm  有两个 按钮 确定/取消
+  // 有返回值 确定->true   取消->false
+  // let res= confirm("你确定吗");
+  // console.log(res);
+
+
+  //4. 在控制台输出
+  //console : log, table,...
+  //输出多个使用,隔开
+  console.log("微信", "QQ", "淘宝");
+  let a = 11;
+  //注意 :最后的输出是 一个值 ,如果你写了一个表达式会将表达式的值计算出来 再打印
+  console.log(a + 1);//将a+1的结果打印出来  12
+  console.log("12");
+
+  //占位符 %s ,必须是放在第一个
+  console.log("点名:%s,%s,%s","小明","小白","小小","大大");
+  console.log("点名:%s,%s,%s","小明","小白");
+
+  console.log("小明","点名:%s,%s,%s","小白");
+
+  //console.table 以表格的形式输出
+  let ary=[{name:"小明",age:"18"},{name:"小白",age:"20"}];
+  //console.table(ary);
+
+
+  let box=document.getElementById("box");
+  console.log(box);
+  //console.dir 详细输出
+  console.dir(box);
+
+  //innerText :给标签添加文本  只能当做纯文本 不可以识别标签
+  //box.innerText="我是一个神仙";
+  //box.innerText="<p>我是一个p标签</p>";
+  //innerHTML:给标签添加内容 可以识别标签
+  //box.innerHTML="<p>我是一个p标签</p>";
+  box.innerHTML="珠峰";
+  //以后常用的是innerHTML
+</script>

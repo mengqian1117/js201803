@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //私有作用域:一个函数执行会形成一个私有作用域 保护里面的私有变量不受外界的干扰
+    //私有变量:
+    //1.在私有作用域下声明过的变量
+    //2.形参
+
+    //函数执行的顺序
+    //1.私有作用域形成
+    //2.给形参赋值
+    //3.变量提声
+    //4.函数体中的代码执行
+
+    //私有作用域下的私有变量外界获取不到
+    //函数执行一次就形成一个私有作用域,如果执行多次每一次形从成的私有作用域没有任何关系
+    var a=2;
+    function f1() {
+      var a=1;
+      var b=10;
+    }
+    f1();
+    console.log(a);//2
+    //console.log(b);//报错了
+
+
+    //在私有作用域下变量提声的时候遇到已经有的私有变量(形参)就不用再声明了
+    function f2(x1,x2) {
+      console.log(x1);
+      var x1=100;
+      var a=1;
+    }
+    f2(10,20);
+    //console.log(x1);
+    f2(1,2);
+    f2();
+
+
+    //在私有作用域下遇到变量,先看是不是自己的私有变量(声明过的,形参),如果是就用自己的 不是话往上一级作用域去找
+    var s="1";
+    var g=10;
+    function fn1(g) {
+      s+=2;
+      g++;
+      console.log(g);
+    }
+    fn1(g);
+    console.log(s);
+    console.log(g);
+</script>
+<script>
+    var aa=100;
+    var bb=200;
+    function fn2(aa) {
+      console.log(bb);
+      var bb=1;
+      aa=2;
+      console.log(bb + aa);
+    }
+    fn2(bb);
+    console.log(aa + bb);
+</script>

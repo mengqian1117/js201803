@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div id="box">box</div>
+</body>
+</html>
+<script>
+  //1.自执行函数中的this永远都是window
+  (function () {
+    console.log(this);
+  })();
+  var obj = {
+    fn: (function () {//属性名fn的属性值是自执行函数执行后的结果
+      console.log(this);
+      return function () {
+        console.log(this);
+      }
+    })()
+  };
+  obj.fn();
+  //2.给元素绑定事件中 给谁绑的this就是谁
+  box.onclick = function () {
+    change("red");
+  };
+
+  function change(color) {
+    box.style.backgroundColor = color;
+  }
+
+  //3.函数当做参数的时候 函数中的this是window
+  var ary = [12, 13, 14];
+  ary.forEach(function (item) {
+    console.log(this);
+  }, ary);
+  //数组中的遍历方法 第二个参数就是用来改变第一个参数函数中的this的
+
+  //4.箭头函数中没有指向 如果出现this指的是上一级的this
+  let fn2 = () => {
+    console.log(this);//window
+  };
+  var obj3 = {
+    fn2: fn2
+  };
+  obj3.fn2();
+</script>

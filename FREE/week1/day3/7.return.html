@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数中 return 出的值就是函数的执行结果也叫函数的返回值
+    function fn() {
+      return 1;
+    };
+    let res = fn();//给res 赋值,赋的值是函数fn执行的返回值 ,就看函数有没有return ,没有return 就undefined ,有return ,return后面是什么结果就是什么
+    console.log(res);
+
+
+    function sum(x,y) {
+      return x+y;
+    }
+    let s1=sum(1,2);
+    let s2=sum(10,20);
+    let s3=sum(10);
+
+    //return 后面的代码不会执行
+    function f1() {
+      return "哈哈";
+      console.log("你好");
+    }
+
+    let s=fn();
+    console.log(s);
+</script>

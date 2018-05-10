@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // + - * / %
+  //++ --
+  //= == === !=
+  //! !!
+  //逻辑运算符 || &&
+
+  //逻辑或||  (或者)
+  //逻辑与&&  (并且)
+
+  // ||的表达式 :如果前面是true返回前面的内容 如果前面是false返回后面的内容
+  //判断前面是true还是false时候 如果不是布尔值默认调用Boolean方法变成布尔值(立马就要像想到只有那5个是false)
+  console.log(true || 1);//true
+  console.log(false || 1);//1
+  console.log(0 || 2);//2
+  console.log(![] || []);//[]
+  console.log(!"" || []);//!""=true  注意输出的都是最终的结果不是一个表达式(有运算符的是表达式)
+  console.log(1 + 1);
+  console.log(!'');
+
+  //&& :前面是true返回后面的内容 前面是false返回前面的内容
+  console.log(!![] && "");//""
+  console.log("0" && 0);//0
+  console.log(0 && 1);//0
+</script>

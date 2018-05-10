@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+caller 调用者 :当前函数在哪个函数中执行的
+如果函数直接在全局中执行caller就是null
+-->
+</body>
+</html>
+<script>
+    function f() {
+      //console.log(f.caller);//f1
+      //f.caller();
+    }
+    function f1() {
+      f();
+    }
+    f1();
+    //f();
+</script>

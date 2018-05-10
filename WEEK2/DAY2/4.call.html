@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+call 是函数类Function原型上的一个公有的方法(函数)
+那么所有的函数都有call方法
+call作用
+1.可以让前面的函数执行
+2.改变前面函数的this
+
+参数
+call() call(null) call(undefined) this都变成window
+第一个参数是用来改变前面函数中this的
+call(obj) this->obj
+
+从第二个参数开始就是给前面函数传参数用的
+-->
+</body>
+</html>
+<script>
+  console.dir(Function.prototype);
+
+  function f1(n) {
+    n++;
+    console.log(this);
+  }
+
+  var obj = {f1};
+  f1.call();
+  f1.call(null, 1);
+  f1.call(undefined, 2);
+  obj.f1.call();
+  obj.f1.call(null);
+  obj.f1.call(undefined);
+
+
+
+  //如果该的this你写的是一个基本数据类型 默认将其变成了一个对象
+  //例如1 变成了Number的实例1
+  function f2() {
+    console.log(this);
+  }
+
+  f2.call(true);
+  // console.log(Object(1));
+  // console.log(new Number(1));
+  console.log(Object(true));
+
+</script>

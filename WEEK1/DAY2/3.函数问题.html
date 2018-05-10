@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    //函数有length属性 没有默认值值的时候就是函数形参的个数
+
+    function fn(a) {}
+
+    console.log(fn.length);
+
+    //形参的默认值 只有不传实参的时候才会走默认值
+    function f1(x,y=(function () {console.log("珠峰"); return 100})()) {
+      x=10;
+      console.log(x+y);
+    }
+    f1(1,2);
+
+
+    function f2(x1,x2,x3=3) {}
+
+    //一旦形参有默认值的时候length就不再表示形参的个数
+    console.log(f2.length);
+
+    var x=100;
+    var s="hh";
+    function f3(x=1,y=x,z=10,m=s) {
+      console.log(y);
+      var s="HH";
+      console.log(m);
+    }
+    f3();
+    //函数执行步骤:
+    //1.形成私有作用域
+    //2.形参赋值 x=1,y=1,z=10,m=s 此时他还没有私有变量s往上找 全局的s="hh"
+    //3.变量提声
+    //4.代码执行
+
+
+
+    function f4(y1,y2,y3=m,m=10) {
+      //形参赋值:y1=undefined,y2=undefined,y3=m 往前看自己有吗?没有上一级有吗?没有 全局中都没有m此时就报错 m is not defined
+    }
+    f4()
+</script>

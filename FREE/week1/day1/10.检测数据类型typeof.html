@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //typeof 检测数据类型
+  //typeof 检测的内容 --> typeof的结果是字符串
+  var a = 1;
+  console.log(typeof a);//"number"
+  var b = true;
+  console.log(typeof b);//"boolean"
+  //例外
+  console.log(typeof null);//"object"
+  console.log(typeof undefined);//"undefined"
+  var s = "字符串";
+  console.log(typeof s);//"string"
+
+  //对于引用数据类型不可以详细检测 检测的结果两种 "object","function"
+  //除了函数是"function"其他检测结果都是"object"
+
+  var arr = [1, 2];
+  console.log(typeof arr);//"object"
+  var obj = {name: "zf"};
+  console.log(typeof obj);//"object"
+  var reg = /\d+/;
+  console.log(typeof reg);//"object"
+  var time = new Date();
+  console.log(typeof time);//"object"
+
+  function f() {}
+
+  console.log(typeof f);//"function"
+
+  var aa = 10;
+  typeof typeof aa;
+  //typeof "number"
+  //"string"
+
+
+  // 两个以及两个以上的typeof 结果都是"string"
+  typeof typeof typeof typeof aa;
+  //typeof typeof typeof "number"
+  //typeof typeof "string"
+  //typeof "string"
+  //"string"
+
+  //727922690
+</script>

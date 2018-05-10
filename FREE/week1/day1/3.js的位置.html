@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<script src="js/DOM加载.js" async></script>
+<!--
+async: 先让HTML加载完成之后再去执行引入的JS
+如果想将JS文件引入写在上面 为了保证DOM加载完成之后再去执行js 可以加一个属性 async
+
+了解:在IE浏览器中有些不支持 async 使用 defer属性
+-->
+<script>
+  //document.getElementById 通过ID名获取一个元素
+  //let box=document.getElementById("box");
+  //在控制台将 box打印出来
+  //console.log(box);
+
+    window.onload=function () {
+      //将代码放在这里 也可以实现 让页面上的静态资源(包括html css)都加载完成之后再去执行代码
+      let box=document.getElementById("box");
+      console.log(box);
+    }
+</script>
+<body>
+<div id="box">我是box</div>
+</body>
+</html>
+<script>
+    /*
+    * 因为 js经常操作DOM 如果DOM没有加载出来 操作就会出问题 为了防止出现操作DOM初错 一般将script放在最底下
+    * */
+</script>
+

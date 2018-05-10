@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+
+    var a=1;
+    var b=a;//b=1 将a代表的值赋值给b
+    b=10;
+    console.log(b, a);//b=10,a=1
+
+    var ary1=[1,2,3];
+    var ary2=ary1;
+    ary2[0]=100;
+    console.log(ary1, ary2);
+
+    //对于引用数据类型 赋给变量的值是一个地址值
+
+    //当给变量赋值的时候浏览器会判断是什么数据类型 如果是引用数据类型 浏览器会默认开辟一个内存地址(堆内存) 将地址值赋给变量,将值存在堆内存中
+
+    //基本数据类型和引用数据类型的区别?
+    //基本数据类型 是操作值的,引用数据类型 是操作地址的
+
+
+    var a1=["苹果","香蕉","菠萝"];
+    var a2=a1;
+    a1[3]="桃子";
+    a2[0]=["李子"];
+    a2=["香蕉"];
+    a2[1]="草莓";
+    console.log(a1, a2);
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+面向对象
+js中万物皆对象 (null,undefined)
+任何东西都看成一个对象 你可以通过原型链(原型指针__proto__)找到基类Object
+JS任何数据类型都有自己所属的类    Null和Undefined不是
+JS中有很多内置类
+1.数据类型  Set Map....
+2.元素
+3.Arguments
+...
+js提供了一种自己定义类的方式 同过自定义的函数来实现的 使用new关键字执行函数 这个函数就有有个新的身份叫类
+构造函数
+
+Number()
+Boolean()
+-->
+<div id="box"></div>
+</body>
+</html>
+<script>
+  let obj = {
+    name: "珠峰",
+    getName: function () {}
+  }
+  obj.name;
+  obj.getName();
+
+  //toString
+    let n=10;
+    n.toString();
+    true.toString();
+    box.className="box";
+  console.dir(box);
+  console.log([1, 2]);
+  function f() {
+    console.log(arguments);
+  }
+  f();
+
+</script>

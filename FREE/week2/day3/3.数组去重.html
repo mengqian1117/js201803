@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    let ary=[1,22,13,14,1,2,12,13,14,1,1,0,5,3,2];
+    //循环原数组获取数组中的每一项(for,for of,forEach,map),将每一项往新数组中放(push) 但是 放之前需要判断一下(includes),只有新数组中没有这一项才放进去
+    /*
+    let arr=[];
+    for (let i=0;i<ary.length;i++){
+      if (!arr.includes(ary[i])){
+        arr.push(ary[i]);
+      }
+    }
+    console.log(arr);
+
+
+    let arr=[];
+    for (let item of ary){
+      if(!arr.includes(item)){
+        arr.push(item)
+      }
+    }
+
+
+    let arr=[];
+    ary.forEach(function (item) {
+      if(!arr.includes(item)){
+        arr.push(item)
+      }
+    });
+    console.log(arr);
+
+
+
+    let arr=ary.filter(function (item, index) {
+      //判断在index之前的项组成的数组(ary.slice(0,index))中有没有item
+      //有 不留下,没有留下
+      return !ary.slice(0,index).includes(item)
+    });
+    console.log(arr);
+    */
+
+    for (let i=0;i<ary.length;i++){
+      if(i!=ary.lastIndexOf(ary[i])){
+        ary.splice(i,1);
+        i--;
+      }
+    }
+    console.log(ary);
+</script>

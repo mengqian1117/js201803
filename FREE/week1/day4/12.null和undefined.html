@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    //undefined 未定义 没有值
+    //1.只声明未定义的变量
+    //2.函数没有返回值
+    //3.获取一个对象的属性名的属性值 对象没有这个属性名就是undefined
+
+
+    //null 空值 一般都是赋值 初始化和清空对象的时候 null不占内存
+    var n=0;
+    var n;
+    var n=null;//初始化null的时候有什么好处
+
+    console.dir(box);
+    box.onclick=function () {
+      alert(1);
+    }
+
+
+    box.onclick=null;
+</script>

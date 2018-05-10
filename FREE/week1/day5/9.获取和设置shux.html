@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div></div>
+</body>
+</html>
+<script>
+    //一个元素 天生自带很多属性(内置属性) 例如 id
+    //我们也可以自己给他定义一些属性,叫做自定义属性
+
+    //使用元素.自定义属性=值 不会显示在标签上
+    let oDiv=document.body.getElementsByTagName("div")[0];
+    oDiv.a="珠峰";
+    oDiv.id="box";
+    oDiv.className="box1";
+    console.dir(oDiv);
+
+    //oDiv.setAttribute(属性名,属性值) 给一个元素设置属性
+    //之前有就是修改没有就是增加
+    //setAttribute 设置的属性会显示在标签上
+    oDiv.setAttribute("id","dd");
+    oDiv.setAttribute("b","哈哈");
+
+    //oDiv.getAttribute(属性名) 获取属性值
+    //可以获取内置属性,但是对于内置属性只能获取通过setAttribute设置的
+    console.log(oDiv.getAttribute("class"));
+    console.log(oDiv.getAttribute("id"));
+    console.log(oDiv.getAttribute("a"));//null
+    console.log(oDiv.getAttribute("b"));//"哈哈"
+
+
+    oDiv.innerHTML="<p id='p1' a='AA'></p>";
+    //直接在标签上加的自定义属性跟setAttribute 一样
+    let p1=document.getElementById("p1");
+    console.log(p1.getAttribute("a"));//"AA"
+
+    //oDiv.removeAttribute("属性名") 删除属性
+    //可以移除内置属性,但是对于内置属性只能移除通过setAttribute设置的
+    oDiv.removeAttribute("a");
+    oDiv.removeAttribute("b");
+    oDiv.removeAttribute("id");
+    console.dir(oDiv);
+
+    //设置和和获取的属性值都是字符串
+    oDiv.setAttribute("i",1);
+    console.log(oDiv.getAttribute("i"));
+</script>

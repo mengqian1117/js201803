@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Boolean() 将其他数据类型转为布尔值
+    //记住 只有5个是false 其他全为true
+    // 0 , NaN ,"" ,null,  undefined
+    console.log(Boolean(0));//false
+    console.log(Boolean([]));//true
+    console.log(Boolean(" "));//true
+    console.log(Boolean("0"));//true
+    console.log(Boolean(parseInt(null)));//false
+
+    //!  和 !!
+    //! 先转布尔再取反
+    console.log(!"");//true
+    console.log(![]);//false
+    console.log(!isNaN(0));//true
+    console.log(!0);//true
+
+    //!! 直接转布尔
+    console.log(!![]);//true
+    console.log(!!null);//false
+
+
+</script>

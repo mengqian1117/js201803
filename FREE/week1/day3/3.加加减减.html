@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    // ++ 在原来的基础上加1
+    // -- 在原来的基础上减1
+    //如果不是数字就会默认转为数字(调用Number方法)
+    let str="1";
+    str++;
+    console.log(str);
+    let t=true;
+    t++;
+    console.log(t);
+    let n=null;
+    n++;
+    console.log(n);
+
+    //区别 i++ 和 ++i
+
+    //i++和++i最终的i都会加1
+    //但是 i++这个表达式的值是加之前的值  ++i这个表达式的值是加之后的值
+
+    let i=3;
+    console.log(i++);//这个i++表达式的值是 还没有加1的值 为 3
+    console.log(i);//但是 i的值是加1之后的值 是4
+
+    let x=3;
+    console.log(++x);//这个++x表达式的值加1之后的值是 4
+    console.log(x);//x也是4
+
+
+    let m=2;
+    (m++) + m +(++m) + m +1;
+
+    let y=4;
+    ++y + (y++) + y + (y--) +(--y) + y;
+
+    //给你一个 初始值 n=0 每一次加1
+    // 如果需求是第一次输出1 ,那就是 ++n ;如果第一次输出0 ,那就是n++;
+</script>

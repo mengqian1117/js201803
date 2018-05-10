@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    //看一个函数的上一级作用域是谁,就看这个函数所对应的地址是在哪个作用域下定义的,在哪里定义的上一级就是谁
+
+    /*
+    var a=1;
+    function fn1() {
+      var a=2;
+      function f1() {
+        console.log(a);
+      }
+      f1();
+    }
+    fn1();
+    */
+</script>
+<script>
+  var a=1;
+  function f1() {
+    console.log(a);
+  }
+  function fn1() {
+    var a=2;
+    f1();
+  }
+  fn1();
+
+</script>

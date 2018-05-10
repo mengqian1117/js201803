@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //变量提升:变量的提前声明
+    //作用域形成之后, 代码执行之前, 先将带var和function 关键字的提前声明或定义
+    //作用域:代码执行的环境 栈内存
+    //1.全局作用域:打开浏览器就形成全局作用域
+    //2.私有作用域:一个函数执行就会形成一个私有作用
+    //3.块级作用域:使用{}包起来的就是块级作用域 {},for(){},if(){},while(){};
+
+    //声明或定义
+    //使用var只声明不定义
+    //function既声明又定义
+
+    console.log(a);//undefined
+    var a=10;
+    console.log(a);
+    //1.形成全局作用域
+    //2.变量提声 将所有带var关键字的提前的声明 此时只声明不定义 a的值是undefined
+    //3.代码执行 从上到下依次执行 23行 console.log(a);是undefined 24行给a赋值为10,25行console.log(a) a是10
+
+
+   f();
+   function f() {
+     console.log("我是function");
+   }
+</script>
+<script>
+
+    f1();
+    var b=1;
+    function f1() {
+      b++;
+      console.log(b);
+    }
+    console.log(b);
+    //1.全局作用域形成
+    //2.变量提声:var b (undefined) function f1=xxxfff000
+    //3.代码执行:
+    //38:  f1();//xxxfff000 ()
+    //41:  b++;此时b是undefined 所以b是NaN
+    //42:  console.log(b); NaN
+    //39:  b=1;
+    //44:  console.log(b);1
+
+
+</script>
+

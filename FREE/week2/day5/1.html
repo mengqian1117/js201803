@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  let ary=[,,1,2,,,5];
+  ary.forEach(function(item){
+    console.log(item);
+  });
+  ary.find(function (item) {
+    console.log(item);
+  });
+  for (let item of ary){
+    console.log(item);
+  }
+  console.log(1 in ary);
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let obj={b:"B",a:"A",c:"C",d:"D",1:"哈哈",4:"嘿嘿",2:"呵呵"};
+    //console.log("a" in obj);
+
+    //for in遍历对象的时候先遍历属性名是数字的 而且按照从小到大的顺序遍历 剩下的按照书写的顺序遍历
+    for(var key in obj){
+      //变量 key 代表属性名
+      //对象有几组键值对就会执行几次
+      //obj[key] 属性值
+      console.log(key,obj[key]);
+    }
+
+    //Object.keys(obj) 是将obj中的属性名组成一个数组
+    console.log(Object.keys(obj).length);
+</script>

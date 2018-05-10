@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: #fcfffb;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">red</button>
+<button id="btn2">green</button>
+<button id="btn3">yellow</button>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    //标准浏览器都可以支持
+    //使用ID名代表这个元素 这样就可以省去获取元素的过程了
+    // btn1.onclick=function () {
+    //   //让box的背景颜色跟按钮的文字一致
+    //   //可以使用innerText获取按钮的的内容
+    //   //this:给谁绑定的事件 this就是谁
+    //   //这里的this就是 你点击的谁this就是谁
+    //   box.style.backgroundColor=this.innerText;
+    // };
+    // btn2.onclick=function () {
+    //   box.style.backgroundColor=this.innerText;
+    // };
+    // btn3.onclick=function () {
+    //   box.style.backgroundColor=this.innerText;
+    // };
+
+    function changeColor () {
+      box.style.backgroundColor=this.innerText;
+    }
+
+    //给事件绑定函数(绑定的是函数的定义)
+    //当用户触发这个事件的时候 就会执行绑定的那个函数
+    btn1.onclick=changeColor;
+    btn2.onclick=changeColor;
+    btn3.onclick=changeColor;
+</script>

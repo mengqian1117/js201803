@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //遇到变量先看当前作用域自己有没有私有的没有就往上一级作用域找,如果还没有就继续找上一级一直找到全局window下还是没有就报错了 ,再在哪里找到就用哪里的,这个查找过程叫做作用域链
+
+    var a=1;
+    function fn1(a) {
+      var f2=fn2;
+      f2();
+    }
+    function fn2() {
+      console.log(a);
+    }
+    fn1(a);
+</script>

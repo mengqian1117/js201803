@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #list li{
+            text-align: center;
+            list-style: none;
+        }
+        #list li span{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #6472ff;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<ul id="list"></ul>
+</body>
+</html>
+<script>
+    let list=document.getElementById("list");
+    let strHTML=``;
+    for (let i=1;i<6;i++){
+      //i是行数,j是列数
+      strHTML+=`<li>`;
+      for (let j=1;j<=2*i-1;j++) {
+        strHTML+=`<span row="${i}" col="${j}">${i}*${j}</span>`;
+      }
+      strHTML+= `</li>`;
+    }
+
+    list.innerHTML=strHTML;
+
+    let spans=list.getElementsByTagName("span");
+
+    for (let i=0;i<spans.length;i++){
+      spans[i].onclick=function () {
+        //之前记录的row和col在标签上 就相当于setAttribute方法加上的
+        //你必须使用getAttribute获取出来
+        let row=this.getAttribute("row");
+        let col=this.getAttribute("col");
+        alert(`${row}行 ${col}列`)
+      }
+    }
+
+
+    // var  s="";
+    // s+="n";//"n"
+    // s+="m";//"n"+"m"==>"nm"
+    // s+="f";//"nm"+"f"==>"nmf"
+</script>

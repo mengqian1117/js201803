@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<ul id="list">
+    <!--<li>A</li>-->
+    <!--<li>B</li>-->
+    <!--<li>C</li>-->
+</ul>
+</body>
+</html>
+<script>
+    //使用for of遍历数组
+    let arr=["AA","BB","CC"];
+    for (let key in arr){
+      //key : 索引
+      //arr[key]:数组的每一项
+    }
+
+    for (let item of arr){
+      //item 是数组的每一项
+      console.log(item);
+    }
+
+
+    //"<li>A</li><li>B</li><li>C</li>"
+
+
+    let str=``;
+    for (let item of arr) {
+      str+=`<li>${item}</li>`;
+    };
+    list.innerHTML=str;
+    //初始值:            str:``
+    //第一次:item :'A'   str:`<li>A</li>`
+    //第二次:item :'B'   str:`<li>A</li><li>B</li>`
+    //第三次:item :'C'   str:`<li>A</li><li>B</li><li>C</li>`
+</script>

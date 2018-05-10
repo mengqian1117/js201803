@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+  /*
+  let box=document.getElementById("box");
+  box.style.width="100px";
+  box.style.height="100px";
+  box.style.backgroundColor="red";
+
+  //style属性设置的是行内样式
+  //通过style.样式属性获取样式 获取的也是行内样式
+  // 如果没有设置这个行内样式 结果是""
+  console.log(box.style.marginLeft);
+
+  //获取经过计算后的样式  什么样式都刻可以获取 (行内,外链,内嵌)
+  //没有设置的样式的都会有默认值 注意例如颜色值 会变成rgb格式
+  //getComputedStyle(元素).样式属性
+  //这个方法只能获取不可以设置
+  console.log(getComputedStyle(box).margin);//"0px 0px 0px 100px"
+  console.log(getComputedStyle(box).color);//rgb(0, 0, 0)
+  console.log(getComputedStyle(box).backgroundColor);//rgb(255, 0, 0)
+  */
+</script>
+<script>
+    let box=document.getElementById("box");
+    let aryColor=["red","yellow","green","orange","plum","blue","purple"];
+    //给box绑定点击事件 点击切换颜色 到"purple" 再从头开始 依次循环
+    //aryColor[0],aryColor[1],aryColor[2],aryColor[3],,,.....>aryColor[6]->aryColor[0]...>
+    //0,1,2,3,...6->0,1,2...6->0
+    //i=0;-(i++)->i=6-->i=0
+    let index=0;//记录的索引
+    box.onclick=function () {
+      //临界值判断 如果index>6  从0开始 让index=0
+      if(index>6)index=0;
+      this.style.backgroundColor=aryColor[index];
+      index++;
+    }
+    function change () {
+      //临界值判断 如果index>6  从0开始 让index=0
+      if(index>6)index=0;
+      box.style.backgroundColor=aryColor[index];
+      index++;
+    }
+
+    //设置一个定时器 让他每隔一段时间执行一次
+    //第一个参数是执行的函数  第二个参数是时间间隔单位是毫秒
+    setInterval(change,100);//每隔1s执行一次change
+</script>

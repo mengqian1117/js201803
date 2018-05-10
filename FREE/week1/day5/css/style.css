@@ -1,0 +1,67 @@
+html,body,div,img,ul,li{
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+}
+
+ul,li{
+    list-style: none;
+}
+#banner{
+    width: 800px;
+    height: 300px;
+    position: relative;
+    margin: 50px auto;
+}
+#bannerInner{
+    position: absolute;
+    width: 800px;
+    height: 300px;
+}
+#bannerInner img{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+#bannerInner img.select{
+    display: block;
+}
+#bannerTip{
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+}
+#bannerTip li{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: gray;
+    font-size:12px ;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
+    margin-left: 20px;
+    z-index: 999;
+}
+#bannerTip li.select{
+    background-color: orangered;
+}
+
+#left,#right{
+    width: 40px;
+    height: 60px;
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    margin-top: -30px;
+    background: url("../img/pre.png") no-repeat;
+    opacity: .5;
+}
+#right{
+    right: 0;
+    background-position: -40px 0;
+}
+#right:hover,#left:hover{
+    opacity: 1;
+}

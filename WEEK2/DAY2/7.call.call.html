@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+call也是函数也有call方法
+f.call.call(x1)
+
+call(x1)执行的时候让前面的函数 f.call执行 将f.call中的this变成x1  而f.call()中this是f 将其变成 x1,一旦变成x1 在call的内部就是让 x1执行,此时x1必须是一个函数
+
+两以及两个以上的call执行最终都是第一个参数通过call执行将剩下参数传给call
+所以读第一个参数必须是函数
+f.call.call(x1,x2,x3);  x1.call(x2,x3)
+f.call.call.call......(x1,x2,3) ->x1.call(x2,x3)
+-->
+</body>
+</html>
+<script>
+    function f(n) {
+      console.log(n);
+    }
+    function f1(n,m){
+      console.log(this);
+      console.log(n+m);
+    }
+    var obj={};
+
+    f.call.call(f1);//f1.call()  this->w  NaN
+
+    f.call.call.call(f1,1,2);//f1.call(1,2)  this->new Number(1) NaN
+
+    f.call.call.call.call(f1,1);//f1.call(1)  this->new Number(1) NaN
+
+    f.call.call(f1,1,2,3);//f1.call(1,2,3)   this->new Number(1) 5
+
+    f.call.call.call(f1,obj,1);//f1.call(obj,1)  this->obj  NaN
+
+    f.call.call.call(f1,obj,1,3);//f1.call(obj,1,3)  this->obj 4
+</script>

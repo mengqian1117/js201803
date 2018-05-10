@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //1
+  /*
+  console.log(a);
+  a();
+  let a = 1;//let 和const定义变量虽然不进行变量提声但是在提声阶段浏览器会看一下是否有不合法和报错的情况
+  function a() {
+    console.log(1);
+  }
+  a();
+ */
+  //2
+  console.log(b);
+  b();
+  var b = 1;
+
+  function b() {
+    console.log(1);
+  }
+
+  b();
+
+  //3
+
+  function f1() {
+    console.log(a);
+    var a = 1;
+    return a;
+
+    function a() {
+    }
+  }
+  f1();
+
+  //4
+  f2();
+  f3();
+  var x1 = x2 = 10;
+
+  function f2() {
+    console.log(x1);
+  }
+
+  function f3() {
+    console.log(x2);
+  }
+</script> 

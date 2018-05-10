@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+bind :得到一个新函数跟原来的函数长得一样 但是this变了
+只改变this 不能让函数执行
+
+注意bind是有返回值,返回值就是得到的新函数
+
+
+call 修改this并执行
+bind 只修改this不执行
+apply 利用传参数的特殊性
+-->
+<div id="box">0</div>
+</body>
+</html>
+<script>
+    function f1() {
+      console.log(this);
+    }
+    let f2=f1.bind(1);
+    console.log(f2==f1);
+    f2();
+
+
+    // Function.prototype.bind=function (obj) {
+    //   //this执行bind的原函数 我们需要返回一个跟this长得一样的函数
+    //   var fn=(new Function("return "+this))();
+    //   //字符串拼接默认调用toString()
+    //   //var fn=(new Function("return "+this.toString()))();
+    //   return fn;
+    // }
+    // var f=f1.bind({});
+    // f();
+
+    function change(){
+      this.innerHTML++;
+    }
+    box.change=change;
+    //setInterval(change.bind(box),1000)
+    box.onclick=function () {
+      change.call(this)
+    };
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let obj1={name:"A",age:10,sex:0};
+    console.log(Object.prototype);
+    Object.prototype.getX=function () {}
+
+    let arr=[1,3,4,6];
+    let arr1=[1,3,4];
+    console.log(arr);
+    //数组中的方法都是公有方法 只要是Array的实例都可以使用这些方法
+
+    console.log(arr.hasOwnProperty("length"));
+    //in :即可检测私有也可以检测公有的方法和属性
+
+    console.log("toString" in obj1);
+
+
+    //1.先遍历属性名是数字的 按照从小到大的顺序
+    //2.既可以遍历私有属性也可以遍历公有属性,但是一些内置属性遍历不到
+    //想这些不可以使用for in 遍历到的属性是不可枚举属性
+
+    for (var key in arr){
+      console.log(key);
+    }
+
+    //查看对一个私有属性的描述信息
+    console.log(Object.getOwnPropertyDescriptor(arr, "length"));
+    //configurable:是否可配置,可不可以删除这个属性
+    //enumerable:false
+    //writable:true 是否可以修改
+    console.log(Object.getOwnPropertyDescriptor(obj1, "name"));
+    console.dir(Object);
+    //查看一个对象下面所有私有属性的描述信息
+    console.log(Object.getOwnPropertyDescriptors(obj1));
+
+    //getOwnPropertyNames 获取所有的私有属性的名字 返回一个数组
+    console.log(Object.getOwnPropertyNames(obj1));// ["name", "age", "sex"]
+
+    //获取当前对象的所属类的原型
+    console.log(Object.getPrototypeOf(obj1));
+
+    let a1=[NaN,NaN,1,true,1,true];
+
+    //Object.is 比较 使用的是===但是解决了NaN的问题
+    console.log(Object.is(NaN, NaN));//true
+    console.log(Object.is(0, -0));
+
+</script>

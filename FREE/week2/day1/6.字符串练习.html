@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1.var str=”12345678” ;
+    //得到一个数组[1,2,3,4,5,6,7,8]
+    //注意:数组中每一项都是数字不是字符串
+
+    var str="12345678";
+    //console.log(str.split(""));//["1","2",,,,]
+
+    var ary=[];
+    for (var i=0;i<str.length;i++){
+      ary[i]=Number(str[i])
+    }
+    console.log(ary);
+
+
+    var str="www.zhufengpeixun.com?a=1&b=2&c=3";
+    // 1)将上面字符串得到一个数组[“a=1”,”b=2”,”c=3”];
+    //这个字符串我们只需要?后面的部分
+    //将字符串使用split按照?拆分为数组,获取数组的后面那一项
+    str=str.split("?")[1];//"a=1&b=2&c=3"
+    let ary1=str.split("&");
+    console.log(ary1);//["a=1", "b=2", "c=3"]
+
+    // 2)将上面字符串得到2个数组[“a”,”b”,”c”]和[“1”,”2”,”3”];
+    //["a=1", "b=2", "c=3"] 将这个数组每一项按照=拆分 第一项放在一个数组中 第二项放在一个数组中
+    let arr1=[],arr2=[];
+    for (let item of ary1){
+      arr1.push(item.split("=")[0]);
+      arr2.push(item.split("=")[1]);
+    }
+    console.log(arr1,arr2);
+
+    // 3)将上面字符串得到一个对象{a:1,b:2,c:3};
+    //["a=1", "b=2", "c=3"] ==> {a:1,b:2,c:3}
+
+    let obj={};
+    for (let item of ary1){
+      obj[item.split("=")[0]]=item.split("=")[1];
+    }
+    console.log(obj);
+
+
+
+//     4.var str=”asdfaaassdddfffssss”
+//     1)找出出现次数最多的字符并求出他的次数
+//     2)得出每个字符出现的次数(可以放在一个对象中)
+//     3)得出去除重复后的字符串
+    var str="asdfaaassdddfffssss";
+    let objNum={};
+    for (let i=0;i<str.length;i++){
+      if(str[i] in objNum){
+        objNum[str[i]]+=1;
+      }else {
+        objNum[str[i]]=1;
+      }
+    }
+    console.log(objNum);
+    //{a: 4, s: 7, d: 4, f: 4}
+
+    //{a: 4, s: 7, d: 4, f: 4} 求出属性值最大的属性名和属性值
+    //假设法
+    //假设最大次数是0  max=0;  对应的字符是 s="";
+
+    let max=0,s="";
+    for (let key in objNum){
+      if(objNum[key]>max){
+        max=objNum[key];
+        s=key;
+      }
+    }
+    console.log("出现次数最多的字符是:"+s+" 次数是:"+max);
+
+</script>

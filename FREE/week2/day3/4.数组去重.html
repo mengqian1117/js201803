@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //利用对象的属性名不可以重复的特点,让对象的属性名和属性值都变成数组的每一项
+    let ary=[1,1,2,1,1,3,4,2,1,4,3];
+    let obj={};
+    for (let item of ary){
+      obj[item]=item;
+    }
+    let arr=[];
+    for (let key in obj){
+      //将属性值放进数组中 key属性名是字符串
+      arr.push(obj[key])
+    }
+    console.log(arr);
+</script>

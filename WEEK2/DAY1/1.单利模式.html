@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+模块化开发:
+将一个完整的项目分模块,大家合作开发
+例如:个人中心,首页,登录注册....
+
+合作开发很容易出现变量冲突  所以说一般每一个模块的属性和方法将其写在一个对象中,只需要对象名字不一样即可,这时候这个对象名就可以叫做命名空间
+每一个命名空间下的方法中的this也是当前命名空间(对象)
+-->
+
+</body>
+</html>
+<script>
+    let personPage={
+      name:"A",
+      getName:function () {
+        console.log(this.name);
+      }};
+    let indexPage={name:"B",getName:function () {
+
+      }};
+    let loginPage={name:"C",getName:function () {
+
+      }};
+    personPage.getName();
+</script>
+<script>
+    //高级单利模式 通过一个自行函数返回一个对象 这个自执行函数执行的时候形成的私有作用域可以保护里面的私有变量不受全局污染
+
+    //单利模式中的链式写法核心就是 return this
+    let obj1=(function () {
+      let name="obj1";
+      function f1() {
+        return this;
+      }
+      function f2() {
+        return this;
+      }
+      return{
+        name,
+        f1,
+        f2
+      }
+    })();
+    obj1.f1().f2().name;
+</script>

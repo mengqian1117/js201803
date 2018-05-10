@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+1.普通函数  注意this问题
+2.new 类   this实例
+3.函数类Function的一个实例
+-->
+</body>
+</html>
+<script>
+    function fn() {}
+    console.dir(fn);
+    //name属性
+    //函数名,匿名函数的名字是""
+    console.log(fn.name);
+    console.log((function () {}).name);//""
+
+    //name的特殊情况
+    //1.通过构造函数方式创建的函数 new Function()  name是"anonymous"
+    //2.同过bind方法得到的一个函数  name是"bound 原来的函数名"
+
+    //function f(x) {x++;console.log(x);}
+    var f= new Function("x","x++;console.log(x)");
+    var f1= new Function("x","x++;console.log(x)");
+    console.log(f.name);//"anonymous"
+    console.log(f1.name);//"anonymous"
+    console.log(Object.getOwnPropertyDescriptor(f, "name"));
+    f.name="f";
+    console.log(f.name);
+    delete f.name;
+    console.log(f.name);
+
+
+    function f2() {};
+    var f3=f2.bind();
+    console.log(f3.name);//"bound f2"
+</script>

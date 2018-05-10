@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 10px;
+            display: inline-block;
+            background-color: yellowgreen;
+        }
+
+        .box.box1 {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+</body>
+</html>
+<script>
+  let boxList = document.getElementsByClassName("box");
+  for (var i = 0; i < boxList.length; i++) {
+    boxList[i].f=true;
+    boxList[i].onclick=function () {
+      this.f=!this.f;
+      //"box"  =>"box box1"
+      //this.className="box box1";
+     // this.className+=" box1"; 不要忘了 box1前面加上一个空格
+      //根据自己的自定义属性f的值来确定自己的className是"box"还是"box box1"
+      if(this.f){
+        this.className="box";
+      }else {
+        this.className="box box1";
+      }
+    }
+  }
+  console.log(boxList);
+</script>

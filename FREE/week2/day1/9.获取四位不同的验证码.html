@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #count {
+            width: 200px;
+            height: 80px;
+            border: 1px solid red;
+            margin: 50px auto 10px;
+            background: -webkit-linear-gradient(top left, red, gold, blue, green, yellow);
+            color: white;
+            font-size: 50px;
+            line-height: 80px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        #change {
+            margin: 0px auto;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="count"></div>
+<p id="change">看不清换一个</p>
+</body>
+</html>
+<script>
+  let str = "0123456789" + "qwertyuiopasdfghjklzxcvbnm" + "qwertyuiopasdfghjklzxcvbnm".toUpperCase();
+  let count = document.getElementById("count");
+  let change = document.getElementById("change");
+
+  let s="",n=null;
+  while (s.length<4){
+    n=Math.round(Math.random()*61);
+    //判断一下 s中有没有随机获取的字符 str[n],没有才放进去
+    if(!s.includes(str[n])){
+      s+=str[n];
+    }
+  }
+  count.innerHTML=s;
+</script>

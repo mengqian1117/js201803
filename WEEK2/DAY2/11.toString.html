@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+任何数据类型对应的类的原型上都有一个toString 但是Object原型上的toString比较特殊 "[object Object]"
+
+
+
+var obj={};
+obj.toString() ->"[object Object]"
+
+ary.toString()
+ary.__proto__->Array.prototype ->toString
+
+
+利用Object原型上的toString的结果特点将里面的this变成想要检测的数据,得到对应的数据类型
+-->
+</body>
+</html>
+<script>
+
+    // delete Array.prototype.toString;
+    // delete Number.prototype.toString;
+    // delete Boolean.prototype.toString;
+    // delete String.prototype.toString;
+    console.log(Array.prototype);
+    let ary=[1,2];
+    console.log(ary.toString());//"[object Array]"
+    console.log(1..toString());//"[object Number]"
+    console.log(true.toString());//"[object Boolean]"
+    console.log("11".toString());//"[object String]"
+    //上m面我们将Number Array  Boolean String 原型上的toString属性删除之后 都找的是Object原型上的toString 我们看出结果是 "[object this的类]"
+
+    // Object.prototype.toString=function () {
+    //   //typeClass this的类型
+    //   var typeClass=this.constructor.name;
+    //   return "[object "+typeClass+"]";
+    // };
+
+    console.log(Object.prototype.toString.call([1, 2]));
+    console.log(Object.prototype.toString.call(1));
+    console.log(Object.prototype.toString.call(true));
+    console.log(Object.prototype.toString.call(/\d/));
+</script>

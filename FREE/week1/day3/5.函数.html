@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数 : 函数定义  函数执行
+    //function 函数名(参数) {函数体}
+    //定义一个函数 fn
+    function fn() {
+      var a=1;
+      a++;
+      console.log(a);
+    }
+    //函数执行: 函数名()
+    //函数执行实际上是让函数体执行 也就是{}里面的代码执行
+    fn();
+    //如果不加() 就不是执行 而是得到整个函数的定义部分
+    console.log(fn);
+    //一个函数可以执行多次 每一次执行没有关系
+    // fn();
+    // fn();
+    // fn();
+    // fn();
+    // fn();
+    // fn();
+    // fn();
+
+    //一般我们会将实现一定功能的代码封装成一个函数 后期如果想实现这样的功能只需要执行这函数, 没有必要重新写一遍相同的代码  这样的好处是提高代码的利用率 减少代码冗余
+
+
+    function getA(a) {
+      //a:形参 是用来承接函数执行的时候传进来的参数
+      //给形参a赋值  赋的值就是执行的时候传的实参
+      //如果没有传实参就是 undefined
+      //a=1;
+      console.log(a);
+    }
+    getA(1);//函数执行的是时候传一个实参(一个确切的值)
+    getA(100);
+    getA();
+
+    function getB(b1,b2) {
+      console.log(b1 + b2);
+    }
+    getB(1,2);
+    getB("1",0);
+    getB(1); //1+undefined=NaN
+    getB(1,2,3,4)
+</script>

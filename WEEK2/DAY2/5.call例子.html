@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div id="box" style="font-size: 50px">0</div>
+</body>
+</html>
+<script>
+    function change(n) {
+      this.innerHTML=parseFloat(this.innerHTML)+n;
+    }
+
+    box.onclick=function () {
+      //this->box
+      //change(2) this->window
+      change.call(this,1);
+    };
+    box.onclick=function () {
+      //自定义属性
+      this.change=change;
+      this.change(2);
+    };
+    box.onclick=function () {
+      //this-box
+      let f=(n)=>{this.innerHTML=parseFloat(this.innerHTML)+n;};
+      f(4);//f是一个箭头函数没有this this指的是上一级中的this
+    }
+
+</script>
+<script>
+    //箭头函数中没有this 使用call方法改变不了this
+    let fn=()=>{
+      console.log(this);
+    };
+    fn.call({o:"o"})
+</script>

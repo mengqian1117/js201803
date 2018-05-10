@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div class="box"></div>
+<p></p>
+<div class="box"></div>
+<p></p>
+<div class="box"></div>
+<i></i>
+<div class="box"></div>
+<span></span>
+<div id="box"></div>
+</body>
+</html>
+<script>
+  //写一个方法获取一个元素的所有的哥哥元素
+  //写一个方法获取一个元素的指定标签名的哥哥元素
+  //写一个方法得到一个元素的索引
+
+  let box = document.getElementById("box");
+  let aryPrev = [];
+  let prev = box.previousElementSibling;
+  // aryPrev.unshift(prev);
+  // prev = prev.previousElementSibling;
+  // aryPrev.unshift(prev);
+  // prev = prev.previousElementSibling;
+  // aryPrev.unshift(prev);
+  // prev = prev.previousElementSibling;
+  // aryPrev.unshift(prev);
+  // prev = prev.previousElementSibling;
+  // prev->null
+
+  while (prev) {
+    aryPrev.unshift(prev);
+    prev = prev.previousElementSibling;
+  }
+
+  console.log(aryPrev);
+  //求出curEle的哥哥
+  function getPrevAll(curEle) {
+    let prevAll=[];
+    let prev=curEle.previousElementSibling;
+    while (prev){
+      prevAll.unshift(prev);
+      prev=prev.previousElementSibling;
+    }
+    return prevAll;
+  }
+  console.log(getPrevAll(box));
+  function getTagPrev(curEle,tagName) {
+    let prevAll=getPrevAll(curEle);
+    //prevAll是一个数组 放的所有的哥哥
+    //只需要将标签名是tagName的过滤出来即可
+    return prevAll.filter(function (item) {
+      return item.nodeName==tagName.toUpperCase();
+    })
+  }
+
+  console.log(getTagPrev(box, "p"));
+  console.log(getTagPrev(box, "div"));
+  console.log(getTagPrev(box, "span"));
+  console.log(getTagPrev(box, "i"));
+
+  function getIndex(curEle) {
+    return getPrevAll(curEle).length;
+  }
+
+  console.log(getIndex(box));
+</script>

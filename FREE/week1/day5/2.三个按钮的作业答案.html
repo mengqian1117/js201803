@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            height: 200px;
+            width: 200px;
+            border: 1px solid green;
+            text-align: center;
+            line-height: 200px;
+            color: #6472ff;
+            font-size: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<div id="box">0</div>
+</body>
+</html>
+<script>
+    //获取操作的元素
+    let btn1=document.getElementById("btn1");
+    let btn2=document.getElementById("btn2");
+    let btn3=document.getElementById("btn3");
+    let box=document.getElementById("box");
+
+    // //给每一个按钮绑定点击事件
+    // btn1.onclick=function () {
+    //   //让box中字体颜色变成red
+    //   box.style.color="red";
+    //   //让box中的内容加 1
+    //   //同过innerText和innerHTML获取出来的是字符串  注意相加的时候是字符串拼接 我们应该把他变成数字再相加
+    //   box.innerText=Number(box.innerText)+1;
+    // };
+    // btn2.onclick=function () {
+    //   box.style.color="green";
+    //   box.innerText=Number(box.innerText)+2;
+    // };
+    // btn3.onclick=function () {
+    //   box.style.color="yellow";
+    //   box.innerText=Number(box.innerText)+3;
+    // };
+
+
+
+    //上面绑定的函数解构是一样的只有俩个地方不同,颜色值和增加的数字
+    //我们写成一个函数不一样的地方使用参数表示
+    //后期只需要根据需求传不同的参数即可
+    function change(color,num) {
+      //如果color不等于现在字体的颜色说明切换按钮了 此时从0开始
+      if(color!=box.style.color){
+        box.style.color=color;
+        box.innerText=0;
+        return;//当切换的时候第一次直接是0 先不加 ,加的代码先不执行
+      }
+      box.innerText=Number(box.innerText)+num;
+    };
+
+   btn1.onclick=function () {
+     change("red",1)
+   }
+   btn2.onclick=function () {
+     change("green",2)
+   }
+   btn3.onclick=function () {
+     change("yellow",3)
+   }
+</script>

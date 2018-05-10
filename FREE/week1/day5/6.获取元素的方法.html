@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div id="box1">1</div>
+<div id="box1">1</div>
+<div id="box2">
+    <p class="pp">p1</p>
+    <p class="pp">p2</p>
+    <p class="pp">p3</p>
+    <p class="pp">p4</p>
+    <p class="pp">p5</p>
+</div>
+<div class="box"></div>
+
+<form action="">
+    <input type="text" name="user">
+    <input type="text" name="user">
+    <input type="text" name="user">
+</form>
+</body>
+</html>
+<script>
+    //通过ID名获取一个元素  如果页面上有相同ID名的元素 获取的是第一个
+    //document:上下文
+    //同过ID名获取元素的方法上下文只能是document
+    console.log(document.getElementById("box1"));
+
+    //通过类名获取一组元素   获取的是一元素个集合,也是一个类数组(有length 有索引)
+    //上下文.getElementsByClassName("类名")
+    //上下文 自己选择,一般都是父级,爷爷也行 最好不要超过3辈
+    let box2=document.getElementById("box2");
+    let pList=box2.getElementsByClassName("pp");//box2 下面所有类名叫pp的元素
+    console.log(pList);
+    //可以通过索引找到对应的那一项
+    pList[3].style.color="red";
+
+    let body=document.body;//获取body
+    //注意:getElementsByClassName 获取的肯定是一个集合,就算这个集合中只有一个元素那也是集合
+    //如果想获取这个元素需要通过索引[0]获取出来
+    let box=body.getElementsByClassName("box")[0];
+    console.log(box);
+
+
+    //通过标签名 获取一组元素集合,也是一个类数组(有length 有索引)
+    //上下文.getElementsByTagName("标签名")
+    box2.getElementsByTagName("p");//获取box2下面所有的p标签
+
+
+    //通过Name获取一组元素 只适用表单元素
+    //上下文必须是document
+    let users=document.getElementsByName("user");
+    console.log(users);
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>
+<script>
+  //输出每一个li的索引
+  var list = document.getElementById("list");
+  var oLis = list.getElementsByTagName("li");
+
+  for (var i = 0; i < oLis.length; i++) {
+    (function (i) {
+      oLis[i].onclick = function () {
+        console.log(i);
+      }
+    })(i)
+  }
+
+  for (var i = 0; i < oLis.length; i++) {
+    oLis[i].onclick = (function (i) {
+      return function () {
+        console.log(i);
+      }
+    })(i)
+  }
+
+
+  //通过形成一个私有作用域来保护或者存储一些私有变量 这种形式成为闭包
+
+  for (let i = 0; i < oLis.length; i++) {
+    //这里的i是每一个块级作用域中私有的i
+  }
+  for (let i = 0; i < oLis.length; i++) {
+    //这里的i是每一个块级作用域中私有的i
+  }
+
+
+</script>

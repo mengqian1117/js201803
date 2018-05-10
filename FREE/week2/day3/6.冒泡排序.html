@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+冒泡排序:拿数组的当前项和后一项比较 如果当前项大于后一项 两者交换位置
+-->
+</body>
+</html>
+<script>
+  let ary = [1, 34, 16, 3, 18, 10];
+  for (var i = 1; i < ary.length; i++) {
+    for (var j = 0; j < ary.length - i; j++) {
+      if (ary[j] > ary[j + 1]) {
+        [ary[j], ary[j + 1]] = [ary[j + 1], ary[j]]
+      }
+    }
+  }
+  ;
+  console.log(ary);
+</script>
+<script>
+
+  arr = [100, 34, 16, 3, 18, 70];
+  //第一轮 i=1;
+  //j=0    arr[j]>arr[j+1]  arr[0]>arr[1]   100>34   交换位置  [34,100,16,3,18,70];
+  //j=1    arr[j]>arr[j+1]  arr[1]>arr[2]   100>16   交换位置  [34,16,100,3,18,70];
+  //j=2    arr[j]>arr[j+1]  arr[2]>arr[3]   100>3    交换位置  [34,16,3,100,18,70];
+  //j=3    arr[j]>arr[j+1]  arr[3]>arr[4]   100>18   交换位置  [34,16,3,18,100,70];
+  //j=4    arr[j]>arr[j+1]  arr[4]>arr[5]   100>70   交换位置  [34,16,3,18,70,100,];
+  //j<5  arr.length-i
+
+  //第二轮 i=2;  [34,16,3,18,70,100,];
+  //j=0    arr[j]>arr[j+1]  arr[0]>arr[1]   34>16    交换位置   [16,34,3,18,70,100,];
+  //j=1    arr[j]>arr[j+1]  arr[1]>arr[2]   34>3     交换位置   [16,3,34,18,70,100,];
+  //j=2    arr[j]>arr[j+1]  arr[2]>arr[3]   34>18    交换位置   [16,3,18,34,70,100,];
+  //j=3    arr[j]>arr[j+1]  arr[3]>arr[4]   34<70    不交换位置 [16,3,18,34,70,100,];
+  //j<4
+
+  //第三轮 i=3;  [16,3,18,34,70,100,];
+  //j=0    arr[j]>arr[j+1]  arr[0]>arr[1]   16>3     交换位置   [3,16,18,34,70,100,];
+  //j=1    arr[j]>arr[j+1]  arr[1]>arr[2]   16<18    不交换位置 [3,16,18,34,70,100,];
+  //j=2    arr[j]>arr[j+1]  arr[2]>arr[3]   18<34    不交换位置 [3,16,18,34,70,100,];
+
+  let f=null;
+  for (var i = 1; i < arr.length; i++) {
+    f=true;
+    for (var j = 0; j < arr.length - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        f=false;
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+    if(f)break;
+  }
+  console.log(arr);
+
+
+</script>

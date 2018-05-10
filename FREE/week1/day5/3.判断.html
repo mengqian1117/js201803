@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    let n=7;
+    //如果 n 在 0-9,10-99,其他
+    if(n>0&&n<=9){
+      console.log("一位数");
+    }else if(n>9&&n<=99){
+      console.log("两位数");
+    }else {
+      console.log("多位数");
+    }
+
+    //if(条件1){}else if(条件2){}else{}
+    //先看条件1 ,条件1不成立再看条件2,以上都不成立就是else
+
+
+    //三元运算符
+    //条件?条件成立执行的(只能一条语句):条件不成立执行的(只能一条语句);
+    var num=10;
+    if(num%2){
+      console.log("奇数");
+    }else {
+      console.log("偶数");
+    }
+    num%2? console.log("奇数"):console.log("偶数");
+
+
+    let m=null;
+    m=num%2?num:0;
+
+    //如果num是奇数 让m="red" 如果num是偶数让m="green";
+
+    m=num%2?"red":"green";
+    n="a";
+    //switch 中的参数去跟case后面的值比较的时候使用的是三个等号===
+    switch (n) {
+      case "a"://n==="a" 成立就会执行这里的代码
+        console.log("a");
+        break;
+      case "b"://n==="b"
+        console.log("b");
+        break;
+      default://以上都不成立
+        console.log("哈哈");
+        break;
+    }
+
+    n=61;
+    switch (n%2) {
+      case 0:
+        console.log("偶数");
+        break;
+      case 1:
+        console.log("奇数");
+        break;
+    }
+
+
+    if(true)console.log("你好");
+    //如果{}只有一行代码可以使省略{}
+    let x=10;
+    if(0)x++;
+    console.log(x);
+
+    if(0){x++};
+    console.log(x);
+
+</script>

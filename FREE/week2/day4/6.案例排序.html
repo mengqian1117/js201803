@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li,p{
+            list-style: none;
+            font-size: 0;
+        }
+        #list{
+            width: 800px;
+            margin: 0px auto;
+            background-color: #ffffe2;
+            border: 2px dashed darkkhaki;
+            padding: 20px 50px;
+        }
+        p{
+            width: 800px;
+            margin: 50px auto 0;
+            padding: 20px 50px;
+            background-color: #fff8ba;
+            border: 2px dashed darkkhaki;
+            border-bottom:none ;
+            cursor: pointer;
+        }
+        #list li{
+            cursor: pointer;
+        }
+        #list li span,p span{
+            display: inline-block;
+            width: 200px;
+            line-height: 40px;
+            font-size: 30px;
+            color: #aa24ff;
+            text-align: center;
+        }
+        p.list-head span{
+            background-color: #7faeee;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<p class="list-head">
+    <span>姓名</span>
+    <span class="age">年龄</span>
+    <span class="sex">性别</span>
+    <span class="score">分数</span>
+</p>
+<ul id="list">
+</ul>
+</body>
+</html>
+<script src="js/getData.js"></script>
+<script>
+    let list=document.getElementById("list");
+    let age=document.getElementsByClassName("age")[0];
+    let sex=document.getElementsByClassName("sex")[0];
+    let score=document.getElementsByClassName("score")[0];
+    //将数据data绑定到页面上
+    function bindHTML(){
+      let strHTML=``;
+      data.forEach(function (item) {
+        strHTML+=`
+      <li>
+         <span>${item.name}</span>
+         <span>${item.age}</span>
+         <span>${item.sex?"男":"女"}</span>
+         <span>${item.score}</span>
+      </li>
+      `
+      });
+      list.innerHTML=strHTML;
+    }
+    //页面初始不要忘了先执行一次
+    bindHTML();
+
+    function getSort(flg,state){
+      //flg:"age"  "sex"  "score"
+      //state: 1  -1
+      data.sort(function (a,b) {
+        return (a[flg]-b[flg])*state;
+      });
+      //此时数组排好了 页面还没重新绑定
+      //后买一旦数组改变要想页面更新  只需要执行bindHTML即可
+      bindHTML();
+    }
+    age.state=1;
+    age.onclick=function () {
+      getSort("age",this.state);
+      this.state*=-1;
+    };
+
+    sex.state=1;
+    sex.onclick=function () {
+      getSort("sex",this.state);
+      this.state*=-1;
+    };
+    score.state=1;
+    score.onclick=function () {
+      getSort("score",this.state);
+      this.state*=-1;
+    };
+
+
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+   // <div class='box'>我是box</div>
+
+    let c1="box";
+    let str="我是box";
+
+      "<div class='box'>我是box</div>";
+    //"<div class='"  +c1+ "'>"  +str+  "</div>"
+
+   document.body.innerHTML+="<div class='" + c1 + "'>" + str + "</div>";
+
+
+   //在ES6中使用ES6的模板字符串进行拼接变量 以后工作中用的基本都是ES6模板字符串
+
+    // `` ${变量}
+    let s1=`<div class='${c1}'>${str}</div>`;
+   console.log(s1);
+   document.body.innerHTML+=s1;
+
+
+
+
+</script>

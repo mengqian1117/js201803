@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+一个函数同new方式执行 就是构造函数
+1.里面的this是当前实例
+2.通过this给当前实例增加私有属性
+3.默认返回的当前实例
+4.实例都是对象
+
+new 有执行功能 如果函数不需要传参数可以省略()
+-->
+</body>
+</html>
+<script>
+    function fn() {
+      this.name="zf";
+    }
+    let f1=new fn;// f1是fn的一个实例
+    //{name:"zf"}
+    //fn();
+
+
+    //构造函数return问题
+    //return出的内容是基本数据类型对实例没有影响 如果是引用数据类型对实例有影响
+    function Fn() {
+      this.a=10;
+      //return 100;
+      return [];
+    }
+    let f2=new Fn;
+    console.log(f2);
+</script> 

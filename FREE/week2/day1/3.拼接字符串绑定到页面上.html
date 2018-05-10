@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        ul,li{
+            list-style: none;
+        }
+        li img{
+            width: 100px;
+            height: 100px;
+        }
+        li p{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+
+</ul>
+</body>
+</html>
+<script>
+  let data = [{img: "1.jpg", text: "我是第一张图"}, {img: "2.jpg", text: "我是第二张图"}, {img: "3.jpg", text: "我是第三张图"}, {img: "4.jpg", text: "我是第四张图"},{img: "1.jpg", text: "我是第一张图"}, {img: "2.jpg", text: "我是第二张图"}, {img: "3.jpg", text: "我是第三张图"}, {img: "4.jpg", text: "我是第四张图"},{img: "1.jpg", text: "我是第一张图"}, {img: "2.jpg", text: "我是第二张图"}, {img: "3.jpg", text: "我是第三张图"}, {img: "4.jpg", text: "我是第四张图"}];
+
+  let list=document.getElementById("list");
+  let str=``;
+  //循环数组data 拼接li
+  for (var item of data){
+      //item 是数组data的每一项 是一个对象想要获取对象中的属性值使用 item.img 和item.text
+      //既然是拼接字符串 就是在原来的基础上多加一个 使用 str+=
+      //使用ES6模板字符串 ${}变量
+      str+=`
+      <li>
+        <img src="img/${item.img}" alt="">
+        <p>${item.text}</p>
+      </li>
+      `
+    }
+  //将拼接好的字符串放在页面上 就是给list.innerHTML
+  list.innerHTML=str;
+</script>

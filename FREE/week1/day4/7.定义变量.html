@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //ES5 var  function
+    //var 可以声明任何类型的变量
+    //var 是一个声明变量的关键字
+    var a=1;
+    //1.可以重复声明 后面的会覆盖前面的
+    //2.只声明未定义就是undefined
+    //3.在全局中声明的变量就是给window增加一个属性 可以使用in来判断  "属性" in window
+    var b;
+    console.log(b);//undefined
+    console.log("b" in window);
+
+    //ES6中使用let 和const
+    //let
+    //1.不可以重复声明
+    //2.只声明未定义就是undefined
+    //3.在全局中声明的变量不会给window增加一个属性
+    let c="你好";
+    console.log(window.c);//undefined
+
+    //const 定义的常量
+    //1.不可以重复声明
+    //2.在全局中声明的变量不会给window增加一个属性
+    //3.一旦声明必须赋值
+    //4.不可以修改的
+    //const d;
+    const f=10;
+    //f=12;
+
+    //变量的命名规范
+    //1.可以使用数字,字母,下划线,$ 但是数字不可以作为开头
+    //2.严格区分大小写
+    //3.不可以使用关键字(特殊意义的)和保留字/
+    //4.尽量使用驼峰命名 studentInfo
+    //5.不要使用拼音 忌讳英汉结合
+
+    let aa;
+    //console.log(AA);
+
+
+
+</script>

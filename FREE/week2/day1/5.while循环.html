@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //while (条件) {循环体}
+    for (var i=0;i<5;i++){}
+
+    var i=0;
+    while (i<5){
+      //debugger;
+      i++;
+      console.log("哈哈",i);
+    }
+
+    let arr=[1,2,12,23,"11",12,1];
+    //找出数组中的唯一一个字符串的索引
+
+    for (var i=0;i<arr.length;i++){
+      if(typeof arr[i]=="string"){
+        console.log(i);
+        break;
+      }
+    }
+
+    //什么情况下继续找
+    //不是字符串的时候继续找
+    var i=0;
+    while (typeof arr[i]!="string"){
+      i++;
+    }
+    console.log(i);
+
+    //全部替换
+    let str="1+2+3+4+5+6+7+8";
+    //将+全部替换成*
+    // str=str.replace("+","*").replace("+","*");
+    // console.log(str);
+
+    //不确定替换多少次 使用while
+    //满足什么样的条件我们继续替换
+    //只要还有+ 就继续替换
+    while (str.includes("+")){
+      str=str.replace("+","*");
+    }
+    console.log(str);
+
+
+    String.prototype.includes=function(str1) {
+      let f=false;
+      for (let i=0;i<this.length;i++){
+        if(this[i]==str1){
+          f=true;
+          break
+        }
+      }
+      return f;
+    }
+</script>

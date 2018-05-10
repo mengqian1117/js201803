@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //有名字的函数 手动执行 函数名() 执行
+
+    //匿名函数 也可以加一个()执行
+
+    //自执行函数 定义和执行一起了
+    (function (a) {
+      console.log(a);
+      console.log("自执行函数");
+    })(1);
+
+    !function (a) {
+      console.log(a);
+      console.log("自执行函数");
+    }(1);
+    ~function (a) {
+      console.log(a);
+      console.log("自执行函数");
+    }(1);
+    +function (a) {
+      console.log(a);
+      console.log("自执行函数");
+    }(1);
+    -function (a) {
+      console.log(a);
+      console.log("自执行函数");
+    }(1);
+</script>

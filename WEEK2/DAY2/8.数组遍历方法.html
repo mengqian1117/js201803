@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+数组遍历方法 第二个参数是用来改变第一个参数函数的this的
+
+-->
+</body>
+</html>
+<script>
+    Array.prototype.forEach=function (fn,obj) {
+      for (var i=0;i<this.length;i++){
+        fn.call(obj,this[i],i,ary);
+      }
+    };
+
+    let ary=[1,2,3];
+    ary.forEach(function (item,index,input) {
+      console.log(this);
+    })
+</script>

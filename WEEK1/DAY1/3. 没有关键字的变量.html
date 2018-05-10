@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+  //如果遇到使用变量的时候发现只声明未定义是undefined,如果没有声明过就报错了
+  console.log(a);//undefined
+  //console.log(b);//报错
+  var a = 1;
+  b = 1;
+
+  console.log(x1);//undefined
+  //console.log(x2);//报错
+  var x1 = x2 = x3 = 10;//这里只有一个var 只能声明一个 x1
+
+
+  console.log(y1, y2, y3);
+  var y1 = 10, y2 = 20, y3 = 30;//这种使用逗号隔开的形式 是分别声明
+
+
+  //fn();//报错:fn is not a function 此时fn是undefined
+  var fn = function () {};//这种情况属于var声明的
+</script>

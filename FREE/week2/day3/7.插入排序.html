@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let ary=[3,12,5,7,8,34,1,10,16,57,32];//桌上的牌
+    let ary1=[];//手里的牌
+    //先摸一张牌放在数组中
+    ary1[0]=ary[0];//手里的牌是 [3]
+    for (var i=1;i<ary.length;i++){
+      //摸到的牌是 ary[i]
+      //将摸到的牌ary[i] 去跟手里的牌比较 从后往前比较
+      for(var j=ary1.length-1;j>=0;j--){
+        //一旦发现摸到的牌ary[i] 比手里某一张牌大了
+
+        if(ary[i]>ary1[j]){
+          //将摸到的牌ary[i]插入到 ary1[j]的后面
+          ary1.splice(j+1,0,ary[i]);
+          //一旦插入后面就不需要比较了
+          break;
+        }
+        //当手里的牌一直比较到索引为0的时候还没有发现比他小的
+        if(j==0){
+          //将摸到的牌ary[i]放在数组ary1的最前面
+          ary1.unshift(ary[i]);
+        }
+      }
+    }
+    console.log(ary1);
+
+
+</script>

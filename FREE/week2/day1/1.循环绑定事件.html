@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+</html>
+<script>
+    let list=document.getElementById("list");
+    let oLis=list.getElementsByTagName("li");
+    for (var i=0;i<oLis.length;i++) {
+      debugger;
+      //console.log(i);
+      oLis[i].a=i;
+      console.log(oLis[i].a);
+      oLis[i].onclick=function () {
+        //只有用户点击的时候才会执行 当点击的时候代码(循环)早就执行完了
+        //此时的i 5
+        //debugger;
+        console.log(i);
+        console.log(this.a);
+      }
+    }
+    //debugger;
+    console.log(i);//5
+    console.log(oLis);
+
+    //先执行循环再执行事件绑定的函数, 执行事件绑定的函数的时候循环早就结束了 ,所以在事件绑定的函数中的i是循环结束之后的i
+    //如果你想在绑定事件的函数中拿到对应li的索引不可以使用i
+    //我们可以使用自定义属性 来将他的索引存起来 到时候可以通过this.自定义属性获取出来
+</script>

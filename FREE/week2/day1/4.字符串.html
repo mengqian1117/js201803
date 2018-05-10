@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let str="ASDASDFFGFAS";
+    console.log(str.__proto__);
+    //1.str.charAt(索引) 跟 str[索引]一样用
+    console.log(str.charAt(1));
+
+    //2.indexOf  lastIndexOf
+    //str.indexOf() 判断某一个字符在字符串中首次出现的索引
+    //没有就是-1
+    console.log(str.indexOf("F"));
+    console.log(str.indexOf("f"));//-1
+    //参数是一串字符串 先看这个字符串在原字符串中有没有 有的话再看首字符在原字符中的索引
+    console.log(str.indexOf("ASD"));//0
+
+    //str.lastIndexOf() 最后一次出现的索引  没有也是-1;
+    str.lastIndexOf("G");
+
+    //3.includes 判断某字符在不在指定字符串中 在就是true,不在就是false
+    console.log(str.includes("S"));//true
+    console.log(str.includes("s"));//false
+
+    //4.split(指定字符)  将字符串按照指定字符拆分为数组
+    let str1="2018-4-24";
+    console.log(str1.split("-"));//["2018","4","24"]
+    console.log("12345".split(""));//["1","2","3","4","5"]
+
+    //5.replace(字符1,字符2),将字符1替换成字符2  replace一次只能替换一个
+    console.log(str1.replace("-", "/"));
+
+    //6.slice(n,m)查找 从索引n找到索引m不包括m ,如果m超出索引的最大值也是找最后即可
+    //slice(n):参数只有一个n,就是从索引n找到最后
+    //slice():没有参数默认就是 slice(0)
+    //参数是负数:倒着数(最后一个是-1),正着找
+    let str2="ASDFGH";
+    console.log(str2.slice(2, 4));//"DF"
+    console.log(str2.slice(2, 10));//"DFGH"
+    console.log(str2.slice(1));//"SDFGH"
+    console.log(str2.slice());//"ASDFGH"
+    console.log(str2.slice(-3));//"FGH"
+    console.log(str2.slice(-2));//"GH"
+
+    //7.subStr  subString
+    //subStr(n,m)从索引n找m个 如果m超出范围也是找到最后即可
+    //subStr(n)从索引n找到最后
+    //负值也是一样的倒着数即可
+    console.log(str2.substr(2, 4));//"DFGH"
+    console.log(str2.substr(2, 10));//"DFGH"
+    console.log(str2.substr(1));//"DFGH"
+    console.log(str2.substr(-3));//"FGH"
+    //substring(n,m)从索引n到索引m
+    //跟slice意思一样只是不识别负数 负数识别为0
+    console.log(str2.substring(-3));
+
+    //7. str2.toLowerCase()  转为小写   str2.toUpperCase()  转为大写
+    console.log("ASD".toLowerCase());
+
+    //8.repeat(数字) 将字符串复制几次
+    //参数:取整
+    //负数会报错
+    //如果是﹣零点几就是0  结果就是""
+    console.log("ASD".repeat(3));//"ASDASDASD"
+    console.log("ASD".repeat(-0.1));//""
+
+    //7.startsWith(指定字符,第二个参数) 是不是以指定字符作为开头
+    //第二个参数 可选的,传了就表示开始查找的位置,不传默认就是0
+
+    //endsWith(指定字符,第二个参数)是不是以指定字符作为结尾
+    console.log("ASD".startsWith("A"));//true
+    console.log("ASD".startsWith("A",1));//false
+    console.log("ASD".startsWith("S",1));//true
+
+    //8.padStart(n,"指定字符")
+    //将得到新字符串的length变成n,使用指定字符在前面补位
+    //padEnd(n,"指定字符")
+    //将得到新字符串的length变成n,使用指定字符在后面补位
+
+    //"指定字符有多个如果超出会自动截取
+    console.log("asd".padStart( 10,"A"));
+    console.log("asd".padStart( 10,"AB"));//"ABABABAasd"
+</script>

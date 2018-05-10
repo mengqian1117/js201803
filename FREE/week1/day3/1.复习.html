@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    let str="<ul>\n" +
+      "        <li>1</li>\n" +
+      "        <li>2</li>\n" +
+      "        <li>3</li>\n" +
+      "        <li>4</li>\n" +
+      "        <li>5</li>\n" +
+      "    </ul>";
+    let str1=`<ul>
+        <li>
+           <a href=""></a>
+        </li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>`;
+    console.log(str1);
+
+    ({a:'a'}).toString();//"[object Object]"
+
+
+    //删除对象的属性
+   // delete 对象.属性名
+    let obj={name:"珠峰",age:9};
+    delete obj.age;
+    console.log(obj);
+    console.log(obj.age);//undefined
+
+    //项目中如果一个对象用完了后期不再使用一定要将这个对象清空 让对象=null
+    obj=null;
+
+
+    Number(!Boolean(typeof function a(){})+isNaN(parseFloat("xiaoxiaobai")) +isNaN(Number({Name:"zf"})).toString());
+
+    Number(!Boolean("function")+isNaN(NaN) +isNaN(NaN).toString());
+    Number(!true+true +true.toString());
+    Number(false+true +true.toString());
+    Number(1 +true.toString());
+    Number(1 +"true");
+    Number("1true");
+    NaN
+
+</script>

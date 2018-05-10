@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //字符串就是一堆字符没有任何意义
+    //单双引号问题,如果里面出现单引号外面使用双引号反之使用单引号
+    // he say:"hello"
+
+    let str1='he say:"hello"';
+    //可以使用转义字符\
+    let str2="he say:\"hello\"";
+
+    //\n 换行
+    console.log("你好\n呀");
+
+    //字符串拼接 +两边如果有字符串就是拼接字符串
+    console.log("1" + 1);//"11"
+
+    let str="var a=1;a=2;";
+    //让字符串变成真实的代码执行
+    //相当于将引号去掉变成代码执行
+    eval(str);//var a=1;a=2;
+    console.log(a);
+
+    let a1="[1,2,3]";
+    let a2=eval(a1);
+    console.log(a2);
+
+    //es6模板字符串
+    let s1=`我是${str1}`;
+    console.log(s1);
+
+
+    let ary=["零","壹","贰","叁","肆","伍"];
+    let ss="12034123122";
+
+    //将字符串中的每一个数字当做ary的索引
+    console.log(ss.replace(/\d/g, function () {
+      return ary[arguments[0]]
+    }));
+
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="banner">
+    <div id="bannerInner">
+        <img class="select" src="img/0.jpg" alt="">
+        <img src="img/1.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/3.jpg" alt="">
+        <img src="img/4.jpg" alt="">
+    </div>
+    <ul id="bannerTip">
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <a href="javascript:;" id="left"></a>
+    <a href="javascript:;" id="right"></a>
+</div>
+</body>
+</html>
+<script>
+  //获取元素
+  let bannerInner = document.getElementById("bannerInner");
+  let imgList = bannerInner.getElementsByTagName("img");
+  let bannerTip = document.getElementById("bannerTip");
+  let list = bannerTip.getElementsByTagName("li");
+  let left = document.getElementById("left");
+  let right = document.getElementById("right");
+  let index = 0;//记录当前显示的img的索引
+
+  //1.给所有的li绑定点击事件 循环绑定
+  for (let i = 0; i < list.length; i++) {
+    list[i].onclick = function () {
+      //记录现在显示的img的索引
+      index = i;
+      //先让所有的li都没有类名 可以循环所有的list让每一个li的className="";
+      //先让所有的img没有这个select类名
+      // for (var j = 0; j < list.length; j++) {
+      //   list[j].className = "";
+      //   imgList[j].className = "";
+      // }
+      // //再让点击的那个li加上类名,跟li(索引)对应的img加上类名
+      // list[i].className = "select";
+      // imgList[i].className = "select";
+      change(index);
+    }
+  }
+
+  //给right绑定点击事件
+  right.onclick = function () {
+    index++;
+    //临界值判断 如果index大于4 index从0开始
+    if (index > 4) index = 0;
+    change(index)
+  }
+
+  left.onclick = function () {
+    index--;
+    if (index < 0) index = 4;
+    change(index)
+  }
+
+
+  function change(i) {
+    for (var j = 0; j < list.length; j++) {
+      list[j].className = "";
+      imgList[j].className = "";
+    }
+    list[i].className = "select";
+    imgList[i].className = "select";
+  }
+</script>

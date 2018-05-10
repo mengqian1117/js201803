@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+
+1.typeof 详细检测基本数据类型(null->object) 对于引用数据类型得到"object"和"function"
+2.instanceOf 检测实例是否属于某一个类 注意基本数据类型中通过字面量创建方式检测不到 使用构造函数创建方式可以检测 引用数据类型没有问题
+3.通过constructor得到所属类本身可以 获取name属性直接拿到类名(函数名)
+4.利用Object原型下面的toString方法将其this通过call方法变成想要检测的数据
+
+-->
+</body>
+</html>
+<script>
+  console.log(Object.prototype.toString.call(null));//[object Null]
+  console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+  //console.log(Null);
+  //console.log(Undefined);
+
+
+
+
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    Number();
+    Boolean();
+    Array();//将参数变成数组
+    console.log(Array(1, 2, 3));
+    //如果参数是只有一个 并且是一个数字 代表得到数组的length
+    console.log(Array(7));//[,,,,,,,]
+
+    //面试题:得到一个数组有7个1
+    Array(7).fill(1);
+    //[[[[[[[1,2],[3,4]]]]]]]  -> "1,2,3,4"
+    console.log([[[[[[[1, 2], [3, 4]]]]]]].toString());//1,2,3,4
+    console.log([[[[[[[1, 2], [3, 4]]]]]]].join());//1,2,3,4
+    console.log([[[[[[[1, 2], [3, 4]]]]]]]+"");//1,2,3,4
+
+    Array.of();//跟Array方法一样 唯一不同的是解决了 只有一个参数是数字的情况
+    console.log(Array.of(7));//[7]
+    console.log(Array("哈哈"));//["哈哈"]
+
+
+    //Array.from()
+    //参数
+    // 数组:得到一个一样的数组
+    // 类数组:返回一个数组   将类数组变成数组
+
+    function sum() {
+      let total=null;
+      for(let i=0;i<arguments.length;i++){
+        total+=arguments[i];
+      }
+      return total;
+    }
+
+    function sum(){
+      //Array.from(arguments)  将arguments变成数组,
+      //变成数组之后就可以使用数组中的方法 join("+") ->"1+2+3+4+5+6+7+8"
+      //使用eval将字符串"1+2+3+4+5+6+7+8" 变成表达式 1+2+3+4+5+6+7+8
+      //返回结果 return
+      return eval(Array.from(arguments).join("+"));
+    }
+
+    console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+
+    let ary=[1,2,3,4,5,6,7,8];
+    let total=eval(ary.join("+"));
+    console.log(ary);
+
+
+    //扩展运算符 ...
+    //1.将数组变成非数组  将数组的中括号去掉展开数组
+    //2.将非数组(只要是有length 有索引的)变成数组
+    let arr1=[1,2,3];
+    let arr2=[10,20,30];
+    console.log(arr1.concat(arr2));
+    console.log([...arr1, ...arr2]);
+
+    let arr3=[1,13,45,63,80,57];
+    //求数组中最大的值
+    Math.max(1,13,45,63,80,57);
+    console.log(Math.max(...arr3));
+
+    //["js",1,2,3,"css"]
+    ["js",...arr1,"css"]
+
+
+    //2.字符串,参数集合arguments,元素集合
+    let s1="12345";
+    console.log([...s1]);
+    function f() {
+      console.log([...arguments]);
+    }
+    f(1,2,3,4,5)
+</script>

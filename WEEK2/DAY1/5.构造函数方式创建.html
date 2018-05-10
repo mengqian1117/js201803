@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //字面量创建方式
+    let n=10;
+
+    //构造函数创建方式 new创建  得到都是对象
+
+    let n1=new Number(1);//此时n1是Number类的实例 n1也是一个对象
+    console.log(typeof n1);
+    console.log(n1);
+
+    //对于基本数据类型 使用构造函数方式创建和字面创建方式不一样,引用数据类型没什么区别
+    let arr1=[1,2,3];
+    let arr2=new Array(1,2,3);
+    console.log(arr1, arr2);
+
+    //构造函数方式创建函数
+    // function f() {
+    //
+    // }
+    //new Function("函数体")
+    //new Function("形参","函数体")
+    let f1= new Function("x","x++;return x;");
+    // function f1(x){
+    //   x++;
+    //   return x;
+    // }
+    console.log(f1(10));
+
+    let s="[1,2,3,4]";
+    //console.log(eval(s));
+    let ff=new Function("return "+s);
+    console.log(ff());
+</script>

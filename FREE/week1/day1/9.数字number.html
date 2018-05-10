@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+   //数字  0 正数负数 小数 ... NaN(不是一个数)
+   //NaN :not a number ,但是是number类型的
+   console.log(typeof NaN);//"number"
+
+    //isNaN :判断是不是一个数 true:不是一个数; false 是一个数
+   //返回值 :true false
+   /*
+   console.log(isNaN(1));//false
+   console.log(isNaN(100));//false
+   console.log(isNaN(NaN));//true
+   console.log(isNaN("1px"));//true
+   console.log(isNaN(true));//false
+   */
+    //isNaN(不是number类型的) 会默认调用Number()将其变成number类型的
+
+    //Number(参数)  将参数变成数字
+   //返回值 要么是一个数字要么是NaN
+   //参数是数字
+   //默认将有效数字补全
+   console.log(Number(.1));//0.1
+   console.log(Number(1.0));//1
+   console.log(Number(NaN));//NaN
+
+    // 布尔值-->数字
+   console.log(Number(true));//1
+   console.log(Number(false));//0
+
+    //null-->数字
+   console.log(Number(null));//0
+
+    //undefined -->数字
+   console.log(Number(undefined));//NaN
+
+    //字符串-->数字
+   //空字符串是0  从第一个非空格到最后一个非空格中间出现非数字就是NaN 否则就是 找到的内容变成数字
+   //"" 空字符串
+   console.log(Number(""));//0
+   //只有空格的字符串
+   console.log(Number("       "));//0
+   console.log(Number("1"));//1
+   console.log(Number("1s"));//NaN
+   console.log(Number("ss1"));//NaN
+   console.log(Number("sss"));//NaN
+   console.log(Number("1 1"));//NaN
+   console.log(Number("1   "));//1
+   console.log(Number("    1"));//1
+    Number("11s");
+    Number("1 0");
+    Number("100  ");
+   console.log(Number(".1"));//0.1
+   console.log(Number(".1."));//NaN
+   console.log(Number("."));//NaN
+
+    //引用数据类型
+    //默认是将引用数据类型调用toString()变成字符串之后 再变成数字
+
+    //数组
+   console.log(Number([]));//0
+   //[].toString() --> ""
+   console.log(Number([1]));//1
+   //[].toString() --> "1"
+   console.log(Number([1,2]));//NaN
+   //[].toString() --> "1,2"
+
+    //对象 {} 调用toString-->"[object Object]"
+    //Number(对象)-->数字  都是NaN
+
+    //Number(正则)   都是NaN
+
+    //Number(时间)  将时间变成毫秒数
+
+   console.log(Number(new Date));
+
+
+   isNaN([]);//false
+   isNaN("1px");//true
+   isNaN([100]);//false
+   isNaN("true");//true
+
+</script>
+<script>
+
+    //parseInt()  转数字只保留整数
+    //结果为 要么是一个数字要么是NaN
+    console.log(parseInt(0.1));//0
+    console.log(parseInt(1.09));//1
+    //参数不是数字的时候 也是将非数组转为数字
+
+    //布尔值-->NaN
+    console.log(parseInt(true));//NaN
+    console.log(parseInt(false));//NaN
+
+    //null-->NaN
+    console.log(parseInt(null));//NaN
+
+    //undefined-->NaN
+    console.log(parseInt(undefined));//NaN
+
+    //字符串
+    //从第一个非空格字符开始查找 遇到非数字停止查找 找到的内容变成数字 没有找到就是NaN
+    console.log(parseInt(""));//NaN
+    console.log(parseInt("    "));//NaN
+    console.log(parseInt("1px"));//1
+    console.log(parseInt("1 1"));//1
+    console.log(parseInt("px1"));//NaN
+    console.log(parseInt("    1  "));//1
+    parseInt("100 0");//100
+    parseInt("1. 0");//1
+    console.log(parseInt("0.1 01"));
+    parseInt("1 1px");//1
+
+    //引用数据类型
+    console.log(parseInt([]));//NaN
+    //特殊的
+    console.log(parseInt(new Date));//NaN
+
+    //parseFloat() 保留小数
+    console.log(parseFloat(".1"));//0.1
+    console.log(parseInt(".1"));//NaN
+</script>

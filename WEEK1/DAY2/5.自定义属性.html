@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+    let oLis=document.getElementById("list").getElementsByTagName("li");
+
+    for (var i=0;i<oLis.length;i++){
+      oLis[i].i=i;
+      oLis[i].onclick=function () {
+        //this:给谁绑绑定的事件this就是谁
+        console.log(this.i);
+      }
+    }
+</script>

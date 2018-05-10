@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //ES6中没有变量提声 不可以使用未声明的变量
+  //console.log(a);//a is not defined
+  let a = 1;
+
+  //let
+  /*
+  * 1.不可以重复声明   'a' has already been declared
+  * 2.没有变量提声
+  * 3.声明的变量不会给window增加一个属性
+  * */
+  //const 定义常量
+  /*
+  * 1.不可以重复声明
+  * 2.没有变量提声
+  * 3.声明的常量不会给window增加一个属性
+  * 4.一旦声明必须赋值
+  * 5.赋值之后不可以修改
+  * */
+  // var a=9;
+  // let a=1;
+  // let a=10;
+  let b = 10;
+  console.log(window.b);
+  console.log("b" in window);
+</script>

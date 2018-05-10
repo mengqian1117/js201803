@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let ary=["js","css","vue","react","node"];
+    for (let item of ary) {
+      //item是数组的每一项
+    }
+
+    //ary.keys() 提供你去遍历数组索引的接口
+    for (let index of ary.keys()) {
+      console.log(index);
+    }
+
+    //ary.entries() 提供你去遍历数组索引和每一项的接口
+
+    for (let e of ary.entries()){
+      //e 是一个数组 [索引,当前项]
+      console.log(e);
+    }
+    //分别拿到索引和每一项
+    for (let [index,item] of ary.entries()){
+      //利用数组的解构赋值 分别获取
+      //index:索引
+      //item :当前项
+      //[index,item]=[0,"js"]
+      //[index,item]=[1,"css"]
+      //[index,item]=[2,"vue"]
+      //.....
+      console.log(index,item);
+    }
+</script>

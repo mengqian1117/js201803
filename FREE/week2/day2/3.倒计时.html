@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<h1 id="t"></h1>
+</body>
+</html>
+<script>
+  //目标时间 确定的时间
+  //let target=new Date("2018 4 25 12:00:00");
+  //let target=new Date("2018/4/25 12:00:00");
+  //let target=new Date("2018-4-25 12:00:00");
+  //let target=new Date("2018*4*25 12:00:00");
+  let target = new Date("2018,4,25 13:00:00");
+  console.log(target);
+
+  //Wed Apr 25 2018 12:00:00 GMT+0800 (中国标准时间)
+  function fn() {
+    let now = new Date;
+    //获取时间差 毫秒
+    let diff = target - now;
+    //console.log(diff);//4034371
+    //毫秒变成  小时 分钟 秒
+    //从大到小计算 先计算小时 不够一小时变成分钟 不够一分钟变成秒
+    let h = Math.floor(diff / (1000 * 60 * 60));
+    let m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    let s = Math.floor(((diff % (1000 * 60 * 60)) % (1000 * 60)) / 1000);
+    t.innerHTML = `距离下课还有: ${h}小时 ${m}分钟 ${s}秒`;
+  }
+  fn();
+  setInterval(fn,1000);
+
+
+</script>

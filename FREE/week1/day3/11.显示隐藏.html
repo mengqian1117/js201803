@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">显示/隐藏</button>
+<div id="box" style="display: block"></div>
+</body>
+</html>
+<script>
+    //1.获取想要操作的元素
+    let btn=document.getElementById("btn");
+    let box=document.getElementById("box");
+
+    //给btn绑定点击事件
+    //第一种:借用一个变量记录点击的次数 每点击一次累加1,根据次数的奇偶性来处理显示隐藏
+    // let count=0;
+    // btn.onclick=function () {
+    //   //当你点击btn的时候就会执行这个函数
+    //   //使用style属性修改 元素的样式
+    //   //通过style修改的是行内样式
+    //   count++;
+    //   if(count%2){
+    //     box.style.display="none";
+    //   }else {
+    //     box.style.display = "block";
+    //   }
+    // }
+
+    //第二种 当你点击的时候让盒子显示还是隐藏取决于现在盒子是显示的还是隐藏的,如果盒子现在是显示的就让他隐藏否则就显示
+    // btn.onclick=function () {
+    //   if(box.style.display=="block"){
+    //     box.style.display="none"
+    //   }else {
+    //     box.style.display="block"
+    //   }
+    // }
+
+
+
+    //第三种: 可以使用一个变量记录当前的状态 根据这个状态的不同做不同的操作
+    let state=true;
+    btn.onclick=function () {
+      if(state){
+        box.style.display="none";
+      }else {
+        box.style.display="block";
+      }
+      state=!state;//变成跟自己原来相反的
+    }
+</script>

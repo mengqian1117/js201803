@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //如果给原型重新赋值新的地址 造成constructor丢失问题,可以手动的加上原来的constructor
+    function FF() {
+      this.x=0;
+    }
+    FF.prototype={
+      constructor:FF,
+      getX:function () {}
+    };
+    console.log(FF.prototype.constructor);
+
+    console.log(Number.prototype.constructor.name);//Number
+    console.log(Boolean.prototype.constructor.name);//"Boolean"
+    console.log(Array.prototype.constructor.name);//"Array"
+
+    //通过获取constructor的name判断数据类型
+    //null和undefined不可以
+    let n=1;
+    console.log(n.constructor.name);//"Number"
+    //n.__proto__-->Number.prototype
+    console.log(true.constructor.name);//"Boolean"
+    console.log([1,2].constructor.name);//"Array"
+
+
+</script>

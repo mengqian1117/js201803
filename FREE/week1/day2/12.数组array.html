@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //数组 是有序的集合
+    //[第一项,第二项,....]
+    // 有length :数组的长度
+    // 有索引: 表示每一项的位置 从0开始
+
+    let arr=[1,2,3,4];
+    //通过 数组[索引]获取对应位置的值
+    console.log(arr[0]);//1
+    console.log(arr[10]);//undefined
+    //arr[索引]=值
+    //数组原来有就是修改 没有就是增加
+    arr[3]=100;
+    arr[10]="哈哈";
+    console.log(arr);
+    //[1, 2, 3, 100, empty × 6, "哈哈"]   empty × 6 有六个空位
+
+    let a1=[,,,2,,,,200,];//一个逗号代表一个空位
+    console.log(a1);
+
+    // 索引 in 数组 :判断这个索引的位置有没有值 true:不是空位 false:是空位
+    console.log(1 in a1);//false
+    console.log(3 in a1);//true
+</script>

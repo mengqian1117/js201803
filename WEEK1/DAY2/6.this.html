@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+this:是执行主体
+this是个对象,不可以赋值的
+在全局中this是window
+我们主要研究私有作用域下的this
+当一个函数执行 函数里面的this是谁就看函数执行的时候前面有没有点 有点的话点前面是谁this就是谁 没有点this就是window
+-->
+</body>
+</html>
+<script>
+  /*
+console.log(this);
+var a = 10;
+console.log(this.a);//window.a 10
+
+function f1() {
+  console.log(this);
+}
+
+f1();
+
+var obj={
+  fn:function () {
+    console.log(this);
+  }
+};
+obj.fn();
+var fn=obj.fn;
+fn();
+
+
+var x1=10;
+function f2() {
+  var x1=100;
+  console.log(this.x1);
+  console.log(x1);
+}
+f2();
+*/
+</script>
+<script>
+    var a=10;
+    function fn1() {
+      this.a++;
+    }
+    var obj1={
+      fn1:fn1,
+      a:100
+    };
+    fn1();
+    obj1.fn1();
+    console.log(this.a);
+    console.log(obj1.a);
+
+
+    var n=10;
+    var obj2={
+      n:1,
+      f:function () {
+        f1();
+        this.n++;
+      }
+    };
+    function f1() {
+      n++;
+      this.n++;
+    }
+    var f=obj2.f;
+    f();
+    obj2.f();
+    console.log(n);
+    console.log(obj2.n);
+</script>

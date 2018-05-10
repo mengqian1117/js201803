@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <script>
+        window.onload=function () {
+          let box=document.getElementById("box");
+          //Cannot set property 'innerHTML' of null
+          box.innerHTML="你好";
+        }
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    //toString()
+    //任意数据类型都有一个toString方法 只有 null和undefined没有这个方法
+    //null.toString();//Cannot read property 'toString' of null 在null中没有这个toString属性
+    //Cannot read property 'XXX' of YYY  就是YYY中没有XXX
+    //undefined.toString();//Cannot read property 'toString' of undefined
+
+
+    //数字 number
+    let num=1;
+    console.log(num,num.toString());
+
+    //. 的
+    //数字. 这个点表示有效数字小数点
+    console.log(2..toString());
+    //使用小括号
+    console.log((2).toString());
+
+    //boolean ->字符串
+    let t=true;
+    console.log(t,t.toString());//"true"
+    console.log(false,false.toString());//"false"
+
+    //引用数据类型
+    //数组 ->字符串  直接将[]变成""
+    let arr1=[];
+    console.log(arr1,arr1.toString());//""
+    console.log([1,2,3].toString());//"1,2,3"
+
+    //对象 {}-->字符串  "[object Object]"
+    let obj1={name:"珠峰"};
+    console.log(obj1.toString());//"[object Object]"
+
+    //正则 -->字符串  直接使用引号包起来
+    let reg=/\d+/;
+    console.log(reg.toString());//  '/\d+/'
+
+    //时间 --> 字符串  直接使用引号包起来
+
+    let time=new Date();
+    console.log(time,time.toString());
+
+    //函数 -->字符串  直接使用引号包起来
+    function f() {};
+    console.log(f.toString());//"function f() {}"
+
+
+    //对于正则 时间 函数 直接使用toString变成字符串的意义不大很少用到 了解一下即可
+    //他们使用toString 的其他用法后期在检测数据类型的时候使用
+
+</script>

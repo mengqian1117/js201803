@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+apply 跟call效果一样 唯一不同的是传参数的方式不同
+第一个参数:修改this用的
+第二参数:数组/类数组 函数执行时候将数组的每一项传给函数
+-->
+</body>
+</html>
+<script>
+    function f(x,y) {
+      console.log(x + y);
+    }
+    f(1,2);
+    f.call(null,1,2);
+    f.apply(null,[1,2]);
+
+
+    //求数组的最大值
+    let ary=[1,23,4,17,8,19,40];
+
+    //1.先排序(从大到小) 获取数组ary[0]
+    ary.sort((a,b)=>b-a);
+    console.log(ary[0]);
+
+    //2.Math.max
+    //Math.max(1,23,4,17,8,19,40);
+    //Math.max([1,23,4,17,8,19,40])
+    Math.max(...ary);
+
+    let m1=eval("Math.max("+ary+")");
+    //"Math.max(1,23,4,17,8,19,40)"
+    console.log(m1);
+
+    //利用apply传参数的特点 传的是一个数组 但是给前面函数max()的时候就是将数组展开
+    console.log(Math.max.apply(null, ary));
+
+    //假设法
+    var max=0;
+    for (var i=0;i<ary.length;i++){
+      if(ary[i]>max)max=ary[i];
+    }
+    console.log(max);
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1.pop()
+    //原数组改变,返回值删除的那一项
+    Array.prototype.pop=function () {
+      let item=this[this.length-1];
+      this.length--;
+      return item;
+    };
+    let arr1=[1,2,3];
+    console.log(arr1.pop());
+    console.log(arr1);
+    //2.shift()
+    Array.prototype.shift=function () {
+      let item=this[0];
+      for (var i=0;i<this.length;i++){
+        this[i]=this[i+1];
+      }
+      this.length--;
+      return item;
+    };
+
+    let arr2=[1,2,3,4,5];
+    arr2.shift();
+    console.log(arr2);
+
+    //3.push()
+    //返回值:length 原数组改变
+    //参数:一个或多个
+    Array.prototype.push=function () {
+      let ary=[...this,...arguments];
+      for (var i=0;i<ary.length;i++){
+        this[i]=ary[i]
+      }
+      return this.length;
+    };
+    Array.prototype.push=function(){
+      for (var i=0;i<arguments.length;i++) {
+        this[this.length+i]=arguments[i];
+      }
+      return this.length;
+    };
+
+    Array.prototype.push=function(){
+      let str=this.toString();
+      for (var i=0;i<arguments.length;i++){
+        str+=","+arguments[i]
+      }
+      let ary=eval(str);
+      for (var i=0;i<ary.length;i++){
+        this[i]=ary[i]
+      }
+      return this.length;
+    };
+    arr2.push(10,100);
+
+
+    //4.unshift()
+
+
+    //indexOf(item,i)
+    Array.prototype.indexOf=function (item,i) {
+      for(i;i<this.length;i++){
+        if(item===this[i]){
+          return i;
+        }
+      }
+      //能走到这里说明循环完了也没有找到
+      return -1;
+    };
+
+    let a1=[NaN,0,1,NaN];
+    console.log(a1.indexOf(NaN));
+    console.log(a1.includes(NaN));//Object.is
+
+
+
+    //forEach()
+    Array.prototype.forEach=function (fn) {
+      for (var i=0;i<this.length;i++){
+        fn(this[i],i,this)
+      }
+    }
+
+    //map
+    Array.prototype.map=function (fn) {
+      let ary=[];
+      for (var i=0;i<this.length;i++){
+        ary[i]=fn(this[i],i,this);
+      }
+      return ary;
+    };
+
+
+    console.log([1, 2, 3].map(function (item, index) {
+      return item * 10;
+    }));
+</script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  for (var i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  //for (语句1,语句2,语句3) {循环体}
+  //1.语句1 先执行, 而且只执行一次
+  //2.再执行语句2 ,是一个判断条件,
+  //3.如果语句2 条件成立执行循环体
+  //4.循环体执行完成之后,最后执行语句3
+  //5.依次循环2,3,4步
+
+  //语句3 是在循环体完成之后执行的 所以可以直接将语句3放在循环体的最底下,但是语句2后面必须加上;分号
+  //平时就按照上面的形式写就可以
+
+  for (var i = 0; i < 5;) {//语句2后面的分号必须留着
+    console.log(i);
+    i++;
+
+  }
+
+  //continue  结束本次循环 进入下一循环
+  //break     终止循环
+
+  for (var i = 0; i < 7; i++) {
+    if (i == 5) {
+      continue;
+    }//遇到continue 不往下执行了 直接执行i++ 然后进入下一次循环
+    console.log(i);//0,1,2,3,4,6
+  }
+  for (var i = 0; i < 7; i++) {
+    if (i == 5) {
+      break;
+    }
+    console.log(i);//0,1,2,3,4
+  }
+
+
+  //找出从0-10中的偶数
+
+  for (var i = 0; i <= 10; i++) {
+    if (i % 2) continue;
+    console.log(i);
+  }
+
+  //找出 1-10中第一次被3整除的数
+  for (var i = 1; i <= 10; i++) {
+    if (i % 3 == 0) {
+      console.log(i);
+      break;
+    }
+  }
+
+  var str = 'abcd*sssa*MSAJ*';
+  //1.找出字符串中第一个”*”出现的位置(索引)
+  for (var i=0;i<str.length;i++){
+    if(str[i]=="*"){
+      console.log(i);
+      break;
+    }
+  }
+
+  //2.找出所有"*"出现的位置
+  for (var i=0;i<str.length;i++){
+    if(str[i]=="*"){
+      console.log(i);
+    }
+  }
+
+
+  let ary=["珠峰","js","css"];
+  for (var i=0;i<ary.length;i++){
+    console.log(ary[i]);
+  }
+
+  //求出任意数的和
+  function sum() {
+    //使用arguments
+    let total=null;
+    for (var i=0;i<arguments.length;i++){
+      //如果参数不是数字可以将其转为数字之后再去加
+      total+=Number(arguments[i]);
+    }
+    return total;
+  }
+
+  let s1=sum(1,2,3);
+  let s2=sum(1,2,3,4,5,6,7);
+  let s3=sum(1,"2");
+</script>

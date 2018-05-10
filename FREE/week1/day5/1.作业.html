@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //思考题:
+  // 1.写一个函数判断传进来的值是不是一个普通对象 {}
+  //参数
+  //返回值:true/false
+  //必须去找一个只有普通对象 独有的特点 toString()-->"[object Object]"
+  //注意 参数问题 ,没传就是undefined或者传了null 这2种情况都会引起报错 ,你写函数必须具备一定 的容错处理 ,尽量考虑全面了
+  function isObject(val) {
+    if(val==undefined){return false}
+    //
+    // if(val.toString()=="[object Object]"){
+    //   return true;
+    // }else {
+    //   return false
+    // }
+     return val.toString()=="[object Object]";
+  }
+
+  console.log(isObject({}));//true
+  console.log(isObject([]));//false
+
+  // 2.写一个方法,返回传进来的值的数据类型,使用typeof就可以
+  //尽量详细判断一下
+    //null  -> "null"
+    function getType(val) {
+      //判断val是一个null
+      if(val===null){return "null"}
+      //if(val+""=="null"){return "null"}
+      //if(val==undefined){return ""+val}
+      return typeof val;
+    }
+    getType("1");//"string"
+    getType(1);//"number"
+</script>
+<script>
+  function isObject(val) {
+    if(val==undefined){return false}
+    return val.toString()=="[object Object]";
+  }
+  function getType(val) {
+    if(val===null){return "null"}
+    //if(val+""=="null"){return "null"}
+    //if(val==undefined){return ""+val}
+    return typeof val;
+  }
+</script>

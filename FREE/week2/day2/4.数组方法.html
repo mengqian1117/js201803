@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //数组原型上的返方法
+  console.log(Array.prototype);
+  //作用,返回值,参数,原数组是否改变
+  //增加
+  //1.unshift
+  //作用:向数组的前面增加新的项
+  //返回值:改变后新数组的length
+  //参数:一个或者多个
+  //原数组:改变
+  var ary = [1, 2, 3];
+  var result = ary.unshift("珠峰", "中国");
+  console.log(ary);//["珠峰", "中国", 1, 2, 3]
+  console.log(result);
+
+  //2.push
+  //作用:向数组的后面增加新的项
+  //返回值:改变后新数组的length
+  //参数:一个或者多个
+  //原数组:改变
+  var ary = [1, 2, 3];
+  var result = ary.push(10, 20);
+  console.log(result);//5
+  console.log(ary);//
+
+
+  //删除
+  //3.shift()
+  //作用:删除数组的第一项
+  //返回值:删除的那一项
+  //参数:没有
+  //原数组:改变
+  var ary = [1, 2, 3];
+  var result = ary.shift();
+  console.log(result);//1
+  console.log(ary);// [2,3]
+
+  //4.pop()
+  //作用:删除数组的最后一项
+  //返回值:删除的那一项
+  //参数:没有
+  //原数组:改变
+
+  var ary = [1, 2, 3];
+  var result = ary.pop();
+  console.log(result);//3
+  console.log(ary);// [1,2]
+
+  //查找
+  //5.slice
+  //作用:从原数组中查找某些项
+  //返回值:查找出的内容组成的新数组
+  //原数组:不变
+  //参数:
+  // (n,m): 从索引n找到索引m  不包括m  m>n 如果n>m ->[]
+  // (n) : 从索引n找到最后
+  // () : 从索引0找到最后  得到一个跟原数组一模一样的新数组
+  //负数: 倒着数
+  var ary = [1, 2, 3, 4, 5];
+  var result = ary.slice(3, 1);
+  console.log(result);//[]
+  console.log(ary.slice(-4, 2));//[2]
+
+  //6.splice
+  //作用:截取或者修改数组
+  //返回值:截取出的内容组成的新数组
+  //原数组:改变
+  //参数:
+  //():->[]
+  //(n):从索引n截取到最后
+  //(n,m): 从索引n截取m个
+  //(n,m,x1,x2,...) : 从索引n截取m个 替换成x1,x2,...
+  var ary = [1, 2, 3, 4, 5];
+  //console.log(ary.splice(3, 2));//[4,5]
+  //console.log(ary.splice(3, 2,"js","css","HTML"));//[4,5]
+  console.log(ary.splice(3, 0, "哈哈"));
+  //(n,0,x1,x2....) 在索引n的前面插入x1,x2....
+  console.log(ary);
+
+
+  //7.concat
+  //作用:拼接/合并数组
+  //返回值:合并后的新数组
+  //原数组:不变
+  //参数:既可以是数组也可以是值,个数不规定
+  var ary = [1, 2, 3, 4, 5];
+  console.log(ary.concat(1, 3, 100));
+  console.log(ary.concat([100, 200, 300]));
+  console.log(ary.concat([100, 200, 300], 1));
+  console.log(ary);
+
+  //8.join
+  //作用:将数组按照指定字符拼接成字符串
+  //返回值:字符串
+  //原数组:不变
+  //参数:指定字符 不传跟toString一样
+  var ary = [1, 2, 3, 4, 5];
+  console.log(eval(ary.join("+")));
+  console.log(ary.join());
+
+  //9.reverse()
+  //作用:倒序
+  //返回值:改变后的新数组
+  //原数组:改变
+  //参数:不需要
+  var ary = [1, 2, 3, 4, 5];
+  console.log(ary.reverse());
+  console.log(ary);
+
+  //10.indexOf
+  //作用:查找某一项在数组中第一次的索引
+  //返回值:索引,没有 -1
+  //原数组:不变
+  //参数
+  //(val):某一项
+  //(val,index):第二个参数表示开始查找的索引
+  var ary = [1, 2, 3, 4, 5, 6, 7, 8];
+  console.log(ary.indexOf(4));//3
+  console.log(ary.indexOf(4, 4));//-1
+  //lastIndexOf
+  //作用:查找某一项在数组中最后一次的索引
+  //返回值:索引,没有 -1
+  //原数组:不变
+  //参数
+  //(val):某一项
+  //(val,index):第二个参数表示开始查找的索引
+
+
+  //11.includes()
+  //作用:判断数组中有没有某一项
+  //返回值:true/false
+  //原数组:不变
+  //参数
+  //(val):某一项 默认从索引0开始找
+  //(val,index):第二个参数表示开始查找的索引
+  var ary = [1, 2, 3, 4, 5, 6, 7, 8];
+  console.log(ary.includes(3));
+  console.log(ary.includes(3, 4));//false
+
+  //12.fill()
+  //作用:填充数组
+  //返回值:改变后的新数组
+  //原数组:改变
+  //参数:
+  //(val):将数组的每一项都变成val
+  //(val,n):从索引n开始到最后全都变成val
+  //(val,n,m):从索引n到索引m(不包括m)都变成val
+
+  var ary = [1, 2, 3, 4, 5, 6, 7, 8];
+  console.log(ary.fill("哈哈", 3));
+  console.log(ary);
+
+  //13.copyWithin
+  //作用:从数组本身copy某一部分 去覆盖某一部分
+  //返回值:改变后的新数组
+  //原数组:改变
+  //参数:
+  var ary = [1, 2, 3, 4, 5, 6, 7, 8];
+  console.log(ary.copyWithin(3, 5));//[1, 2, 3, 6, 7, 8, 7, 8]
+  var ary = [1, 2, 3, 4, 5, 6, 7, 8];
+  console.log(ary.copyWithin(3, 5, 6));//[1, 2, 3, 6, 5, 6, 7, 8]
+  var ary = [1, 2, 3, 4, 5, 6, 7, 8];
+  console.log(ary.copyWithin(6, 3, 7));
+
+
+</script>

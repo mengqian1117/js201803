@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 特殊的number :NaN  not a number 不是一个数 但是他是number类型
+    //Infinity 极限值 无限的
+    console.log(typeof NaN);//"number"
+    console.log(typeof Infinity);//"number"
+
+
+    //isNaN(参数) 判断是不是NaN 是NaN就是true 不是NaN就是false
+    console.log(isNaN(NaN));
+    console.log(isNaN(1));
+    console.log(isNaN("1"));
+    //如果参数不是number类型的 默认将其变成number类型的 调用的是Number()方法
+
+    // Number() 返回值是一个数字或者是NaN
+
+    //数字:默认将有效数字加上或者去去除无效数字
+    console.log(Number(.1));//0.1
+
+    //布尔->数字
+    console.log(Number(true));//1
+    console.log(Number(false));//0
+
+    //null undefined
+    Number(null);//0
+    Number(undefined);//NaN
+
+    //string-->数字
+    //从第一个非空格到最后一个非空格中间只要是出现非数字 就是NaN,否则就是找出的内容变成数字
+    Number("");//0
+    Number("   ");//0
+    Number("   1");//1
+    Number("   1  1");//NaN
+    Number("1   ");//1
+    Number("1px");//NaN
+
+
+    //对于引用数据类型 先将其变成字符串(调用toString)再按照字符串的形式变成数字
+
+    //但是有个特例时间 将时间变成毫秒数(getTime)
+
+    console.log((new Date).getTime());
+    console.log(Number(new Date));
+
+
+    //parseInt()  只保留整数
+    //parseFloat() 保留小数
+
+    console.log(parseInt(true));//NaN
+    console.log(parseInt(false));//NaN
+    console.log(parseInt(null));//NaN
+    console.log(parseInt(undefined));//NaN
+
+    //parseInt/parseFloat叫他非强制转换  Number叫强制转换
+    console.log(parseInt("1px"));
+
+    console.log(parseFloat(1.9));
+    console.log(parseInt(1.9));
+
+    ///如果遇到数学运算肯定是Number方法
+
+
+    let now=new Date();//获取当前时间
+    //let a=new Date("2018 4 21 18:00:00");//给定时间变成标准时间格式
+    let target=new Date("2018/4/21 18:00:00");//给定时间变成标准时间格式
+    console.log(target);//Sat Apr 21 2018 18:00:00 GMT+0800 (中国标准时间)
+
+    console.log(target - now);
+
+</script>

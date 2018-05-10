@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+1.堆内存 存储引用数据类型的
+2.栈内存 作用域
+
+堆内存的释放 一般需要手动清空 以后在项目中如果后面不再使用的引用数据类型地址 应该手动清空 赋值为null
+obj=null;
+栈内存的释放
+1.全局作用域 只有关闭浏览器器才会销毁
+2.私有作用域
+销毁的
+不销毁的:如果一个作用域执行之后返回一个新的函数地址 并且被外界占用了 此时这个作用就不销毁
+-->
+</body>
+</html>
+<script>
+  // function f1() {
+  //   var a=10;
+  //   console.log(a);
+  // }
+  // f1();
+  // f1();
+  // f1();
+  // f1();
+
+    var a=100;
+    function fn() {
+      var a=10;
+      function f() {
+        console.log(a);
+      }
+      return f
+    }
+
+    var f=fn();
+    f();
+</script>

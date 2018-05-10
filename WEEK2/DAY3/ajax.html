@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    // ajax:  async javascript and XML
+    //异步获取数据的方法
+
+    //四部曲
+    //1.通过构造函数方式 创建一个异步的AJAX对象
+    let xhr=new XMLHttpRequest();
+
+    //2.打开一个URL地址 设置请求方式
+
+    //xhr.open("请求方式","请求API地址,url地址","是否异步")
+    //请求方式 "GET"
+    //url:数据的url地址 后台给你的数据接口
+    //是否async:  false同步
+    xhr.open("get","data/product.json",false);
+
+    //3.监听状态变化 拿到数据
+    //onreadystatechange 是一个事件
+    xhr.onreadystatechange=function () {
+      //只要状态发生改变了就会触发
+      //只有 xhr.status==200&&xhr.readyState==4 都满足的时候才会拿到数据
+      //获取的数据存在 xhr.responseText中 而且是一个JSON字符串
+      //你使用的一般是JSON对象所以要将JSON字符串变成JSON对象
+      if(xhr.status==200&&xhr.readyState==4){
+        console.log(JSON.parse(xhr.responseText));
+      }
+    };
+    //4.发送 send()
+    xhr.send(null)
+    */
+
+
+    //1.创建AJAX对象
+    let xhr=new XMLHttpRequest();
+    //2.打开一个URL
+    xhr.open("get","data/product.json",false);
+    //3.监听
+    xhr.onreadystatechange=function () {
+      if(xhr.status==200&&xhr.readyState==4){
+        console.log(JSON.parse(xhr.responseText));
+      }
+    };
+    //4.发送
+    xhr.send(null);
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //对象:无序的键值对的组合
+    //1.属性名(键)是字符串, 但是写的时候引号可以省略
+    //2.属性名不可以重复 如果重复后面的值覆盖前面的
+    //属性名:属性值
+    let obj1={name:"珠峰",age:10,1:"JS",2:"css",0:"html"};
+    //获取属性名对应的属性值
+    //对象.属性名   如果属性名是数字不可以写成点形式 只能使用[]的形式而且可以省略引号
+    //对象["属性名"]
+    //没有属性名 就是undefined
+    console.log(obj1.name);
+    console.log(obj1["name"]);
+
+    let a="哈哈",b="嘿嘿";//使用, 一个let可以声明多个变量
+    let obj2={a,b};//{a:"哈哈",b:"嘿嘿"}
+    //属性名就是变量名 ,属性值就是变量代表的值
+
+    let n="name";
+    let obj3={
+      [n]:"珠峰",//在对象的定义中如果想使用变量表示属性名 可以放在[]中
+    }
+    obj3.name;
+    //obj3[n]== obj3["name"]
+
+    //设置 对象.属性名=值  对象["属性名"]=值
+    //如果之前有就是修改 没有就是增加
+
+    //删除
+    //delete 对象.属性名
+
+    delete obj1.age;
+    console.log(obj1);
+
+    //使用for in 遍历对象
+    //先遍历属性名是数字的 按照从小到大的顺序遍历 剩下的按照你写的顺序
+    for(var key in obj1){
+      //有几组键值对就会执行几次
+      //key :属性名
+      //obj1[key]: 属性值
+    }
+
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    function f1(x1,x2) {
+      console.log(x1 + x2);//3
+    }
+    console.log(f1);//f1 没有执行 在这里只是打印出了f1的定义部分
+    console.log(f1(1, 2));//先让f1去执行 然后再将f1的执行结果打印出来
+    //f1没有return 所以执行结果是undefined
+    // let res=f1(1,2);
+    // console.log(res);
+
+    // function f2(x) {
+    //   x++;
+    // }
+    // function f3(x) {
+    //   x--;
+    //   return x;
+    // }
+    // let x=10;
+    // let m=f2(x)+f3(x);
+    // console.log(m);//NaN
+
+
+    function f2(x) {
+      x++;
+      return x;
+    }
+    function f3(x) {
+      x--;
+      return x;
+    }
+    let x=10;
+    let m=f2(x)+f3(x);//20
+    // f2(10)+f3(10)
+    // 11+ 9
+    // 20
+    let n=f2(x)+f3();//NaN
+    console.log(m,n);
+
+
+</script>

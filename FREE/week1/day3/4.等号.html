@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //= 是赋值  =左边是变量 ,=右边是值 如果=右边不是值就将值计算出来赋值给变量
+    //一般两种情况 变量和表达式 ,如果是变量将变量代表的值赋给左边的变量 如果是表达式就计算出值赋给左边的变量;
+    let a=1;
+    let b=a+1;
+
+    //== 比较 判断==两边是否相等 结果是布尔值 true/false
+    console.log(1 == 1);
+    //== 两边如果是不同数据类型 需要进行数据类型的转换
+
+    //基本数据类型
+    //number 中 NaN跟任何值比较都是 false
+    console.log(NaN == NaN);//false
+
+    //数字 == 布尔  将布尔值转为数字(使用Number方法)
+    console.log(1 == true);//true
+    console.log(0 == false);//true
+
+
+    //null和undefined 跟其他数据类型比较的时候都是false 但是 他俩之间是相等的
+    console.log(null == undefined);//true
+    console.log(null == null);//true
+    console.log(undefined == undefined);//true
+    console.log(null==false);//false
+
+
+    //数字==字符串  将字符串变成数字(使用Number方法)在进行比较
+    console.log("" == 0);
+    console.log("  " == 0);
+    console.log("0" == 0);
+    console.log("00" == 0);
+
+
+    //字符串==布尔值 将两边都转为数字再去比较(使用Number方法)
+    console.log("0" == true);//false
+    //"0"->0  true->1
+    console.log("0" == false);//true
+    //"0"->0  false->0
+    console.log("  " == false);//true
+
+
+
+    //数字 == 引用数据类型比较  先转为字符串 再变成数字 向对象 时间 正则 函数 没有相等的
+    //唯一有可能相等的只有数组 而且是空数组或者数组只有一项而且这一项必须是一个数字
+    console.log(0 == []);
+    console.log(0 == [0]);
+    console.log(1 == [1]);
+    console.log(1 == [1,2]);//"1,2"->NaN   false
+
+
+    //字符串 ==引用数据类型  将引用数据类型变成字符串再比较
+    console.log("/1+/"== /1+/);//true
+    console.log("[object Object]" == {name: "zf"});//true
+
+
+    //布尔值 ==引用数据类型  两边都转为数字
+    console.log(true == []);//false
+    console.log(true == [1]);//true
+    console.log(false == [0]);//true
+    console.log(true == [100]);//false
+
+    //引用数据类型==引用数据类型  比较的是地址值 就看这两个是不是公用一个地址
+    let obj1={};
+    let obj2={};
+    console.log(obj1 == obj2);//false
+
+    let arr1=[1,2];
+    let arr2=arr1;
+    console.log(arr1 == arr2);
+
+
+    //=== 绝对相等 先判断数据类型是否一样 在去判断值(地址值)是否一样
+    // 也就是说只要数据类型不同肯定是false
+
+    console.log(1 === "1");//false
+    console.log(null === undefined);//false
+
+
+    //!= 不等于 是按照== 这样的方式来判断的
+    //!==      是按照=== 这样的方式来判断的
+</script>

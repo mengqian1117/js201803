@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<ul id="list"></ul>
+</body>
+</html>
+<script>
+    //使用单引号/双引号包起来的是字符串
+    //字符串中的内容没有任何意义 就是一堆字符
+    //字符串有length (长度) 有索引(从0开始)
+    let str1='1234567';
+    console.log(str1.length);//length属性 就是字符串的长度 字符的个数
+    //索引 是字符在字符串中的位置表示 位置是从0开始
+    //可以使用  字符串[索引] 获取对应位置的字符
+
+    console.log(str1[0]);//索引为0的字符 "1"
+    console.log(str1[6]);//索引为6的字符 "7"
+    //如果没有索引为这个的字符就是undefined
+    console.log(str1[7]);//undefined
+
+    console.dir(new String("1234567"));
+
+    //注意 字符串中的空格也是有效的字符
+    let str2="1 a ss    ";
+    console.log(str2.length);//"10"
+    console.log(str2[6]);//" "
+
+
+    // 单引号里面可以嵌套双引号  双引号里面可以嵌套单引号
+    "I'm s student"
+    //可以使用\转义 就可以同时使用 一种引号形式
+    'I\'m s student'
+
+    '他说:"你是最棒的"'
+
+    //+ 遇到字符串表示字符串的拼接
+
+    console.log("1" + "1");//"11"
+
+    //其他数据类型 + 字符串 :也是字符串的拼接 先将其他数据类型变成字符串(默认调用toString方法) 再跟字符串进行拼接
+
+    console.log(true + "哈哈");//"true"+"哈哈"="true哈哈"
+    console.log(1 + "1");//"11"
+    //特殊 :因为null和undefined没有toString方法 当遇到字符串拼接的时候 直接变成字符("null"或者"undefined")串拼接
+    console.log(null + "1");//"null1"
+
+    //字符串拼接变量  拼接的是变量存储和代表的值
+
+    let name="珠峰";
+    let s1="我在"+name+"学习JS";//"我在珠峰学习JS"
+
+
+    let name1="小米";
+    let name2="小明";
+    let name3="中米";
+
+    //1.获取想要操作的元素
+    let list=document.getElementById("list");
+
+    //list.innerHTML="<li>"+name1+"</li><li>"+name2+"</li><li>"+name3+"</li>";
+    list.innerHTML=`<li>${name1}</li><li>${name2}</li><li>${name3}</li>`;
+</script>

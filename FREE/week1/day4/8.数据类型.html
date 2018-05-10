@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //基本数据类型(值类型)
+    //数字number 布尔boolean  null  undefined 字符串string  Symbol
+
+
+    //引用数据类型(地址型)
+    //object:数组array  对象object  正则Regexp 时间Date  Set  Map
+    //function:函数
+
+    //区别?
+
+    //基本数据类型是操作值的  引用数据类型是操作地址
+    //当遇到给变量的赋值的时候浏览器会主动判断是什么数据类型的 如果是引用数据类型 浏览器会默认开辟一个堆内存将值存进去 给这内存分配一个地址值 将地址值赋值给这个变量
+    var a=1;
+    var b=a;
+    b=10;
+    console.log(a);
+
+    var ary1=[1,2,3];
+    var ary2=ary1;
+    ary2[0]=100;
+    console.log(ary1);
+
+
+    var obj={a:1,b:2};
+    console.log(obj);
+    delete obj.a;
+    var obj2=obj;
+    obj2.c="哈哈";
+</script>
+

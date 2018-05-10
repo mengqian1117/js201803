@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #count {
+            width: 200px;
+            height: 80px;
+            border: 1px solid red;
+            margin: 50px auto 10px;
+            background: -webkit-linear-gradient(top left, red, gold, blue, green, yellow);
+            color: white;
+            font-size: 50px;
+            line-height: 80px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        #change {
+            margin: 0px auto;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="count"></div>
+<p id="change">看不清换一个</p>
+</body>
+</html>
+<script>
+  let str = "0123456789" + "qwertyuiopasdfghjklzxcvbnm" + "qwertyuiopasdfghjklzxcvbnm".toUpperCase();
+  let count = document.getElementById("count");
+  let change = document.getElementById("change");
+  //随机获取一个 怎么随机?什么随机
+  //0-61  只需要随机获取一个0-61的数作为索引
+  //获取四位验证码 那就循环4次 获取一个拼接一个
+  //str[索引]
+  function getCode() {
+    let s = "", n = null;
+    for (let i = 0; i < 4; i++) {
+      //获取随机数
+      n = Math.round(Math.random() * (61 - 0) + 0);
+      s += str[n];
+    }
+    //将验证码放在 页面的count中
+    count.innerHTML = s;
+  }
+
+  //先让函数执行一次 初始的时候才有验证码
+  getCode();
+  //给change绑定点击事件
+  change.onclick = getCode;
+</script>

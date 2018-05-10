@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        .li0{background-color: fuchsia}
+        .li1{background-color: yellowgreen}
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+</ul>
+</body>
+</html>
+<script>
+    let list = document.getElementById("list");
+    let oLis=list.getElementsByTagName("li");
+
+    //给元素设置类名  元素.className=类名;
+    //设置id  元素.id=id名
+    for (var i=0;i<oLis.length;i++){
+      oLis[i].className="li"+i%2;
+    }
+
+    console.dir(oLis[0]);
+</script>

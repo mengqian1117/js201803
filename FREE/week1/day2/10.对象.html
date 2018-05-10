@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    //对象 : 是键值对的组合 是无序的
+    //键值对 : 属性名(键key)和属性值(value)
+    //{属性名 : 属性值,属性名:属性值....}
+
+    //1.属性名不可以重复 如果重复了后面会覆盖前面的
+    //2.属性名是字符串 但是写的时候可以省略引号
+
+    let obj1={"name":"珠峰",name:"中国"};
+    console.log(obj1);
+
+    //3.可以通过 对象["属性名"] 获取对应的属性值
+    //4.可以通过 对象.属性名 获取对应的属性值
+    ///如果对象没有这个属性名获取出来就是undefined
+    console.log(obj1.name);
+    console.log(obj1["name"]);
+    console.log(obj1.age);//undefined
+
+    //对象.属性=值
+    //对象["属性"]=值
+    //如果之前有就是修改 没有就是增加
+
+    let obj2={a:"AA",b:"BB"};
+    obj2.a="哈哈";
+    //之前对象中有属性名a 这里将属性值改成"哈哈"
+    obj2.c="嘿嘿";
+    //之前没有c属性 就给对象增加一组键值对 属性名是c属性值是"嘿嘿"
+    console.log(obj2);
+
+    console.log(obj2["a"]);
+    //如果 [属性名] 如果不写成字符串就是变量
+
+    //obj2[a];//a is not defined
+    //这里的a是变量
+
+    let a="b";
+    console.log(obj2[a]);
+    console.log(obj2["b"]);
+    //如果是变量那就去找变量存储和代表的值 找不到这个变量就报错了 XX is not defined
+
+
+
+    let obj={A:"AA",B:"BB",C:"CC"};
+    let A="AA";
+    let B="C";
+    console.log(obj[A]);// obj["AA"]  undefined
+    console.log(obj[B]);//obj["C"]  "CC"
+    console.log(obj["B"]);//"BB"
+    console.log(obj);
+</script>

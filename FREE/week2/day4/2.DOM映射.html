@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div id="box"></div>
+<ul id="list">
+    <li>1</li>
+    <li>5</li>
+    <li>3</li>
+    <li>2</li>
+</ul>
+</body>
+</html>
+<script>
+
+    //元素是对象
+    let box=document.getElementById("box");
+    box.innerHTML="哈哈";
+
+    let list=document.getElementById("list");
+    let oLis=list.getElementsByTagName("li");
+    let a1=oLis;
+    let a2=[...oLis];
+    a2.sort(function (a,b) {
+      return a.innerHTML-b.innerHTML;
+    });
+</script>

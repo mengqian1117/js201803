@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<ul id="list">
+    <li>
+        <span>12</span>
+        <button id="btn1">删除</button>
+        <button id="btn3">修改</button>
+    </li>
+    <li>
+        <span>23</span>
+        <button id="btn2">删除</button>
+        <button id="btn4">修改</button>
+    </li>
+</ul>
+</body>
+</html>
+<script>
+    //弹窗
+    //alert()
+    //1.只有一个确定按钮
+    //2.弹出的内容是字符串 如果你写的不是字符串默认调用toString方法将其转为字符串
+    //3.alert没有返回值 undefined
+    //let res=alert(1);
+    //console.log(res);
+    //confirm()
+    //1.有两个按钮 确定/取消
+    //2.弹出的内容是字符串 如果你写的不是字符串默认调用toString方法将其转为字符串
+    //3.有返回值 确定按钮返回true,取消按钮返回false
+    //let res=confirm("你确实吗?");
+    //console.log(res);
+    //prompt()
+    //1.有两个按钮 确定/取消 还有一个输入框
+    //2.弹出的内容是字符串 如果你写的不是字符串默认调用toString方法将其转为字符串
+    //3.有返回值 确定按钮返回输入框中的内容,取消按钮返回null
+    btn1.onclick=remove;
+    btn2.onclick=remove;
+    function remove() {
+      //根据你选择弹出窗口的按钮来做不同的处理 如果是确定就删除
+      let res=confirm("你确定删除吗?");
+      if(res){
+        //此时res是true 在这里删除span中的内容
+        //this 你点击的按钮
+        //可以这样写 删除的就是当前你点击元素的哥哥中的内容
+        //previousElementSibling:表示哥哥元素 当前标签的上一个标签
+        //将内容变成空字符串;
+        this.previousElementSibling.innerHTML="";
+      }
+    };
+
+    btn3.onclick=change;
+    btn4.onclick=change;
+    function change() {
+      //获取弹窗的返回值 要么是输入框的内容(点确定)要么是null(取消)
+      let res=prompt("修改成");
+      if(res){
+        //点击确定的时候,将res当做哥哥的哥哥内容
+        this.previousElementSibling.previousElementSibling.innerHTML=res;
+      }
+    }
+</script>
+<script>
+
+    //都是用来开发时候的调试用的
+    //在控制台输出
+    //console
+    //log dir table group groupEnd
+    //log 简单输出  dir 详细输出
+    console.log(list);
+    console.dir(list);
+
+    //table 表格形式输出
+    console.table([{name:"珠峰",age:18}]);
+
+    //group打印一组  groupEnd结束本组
+    console.group("1");
+    console.log("1-1");
+    console.log("1-2");
+    console.groupEnd();
+    console.group("2");
+
+
+    //%s 占位置符
+    console.log("我是 %s,我是 %s","QQ");
+    console.log("我是 %s,我是 %s","QQ","WW","FF");
+</script>

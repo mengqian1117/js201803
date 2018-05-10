@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    //window 是全局对象
+    //var
+    //1.可以重复声明 后面覆盖前面的值
+    //2.只声明不赋值 此时变量是undefined
+    //3.在全局作用域中,使用var声明的变量会给全局对象window增加一个属性
+    var a=10;
+    var a=100;
+    var b;
+    console.log(b);
+    var c=10;
+    console.log(window.c);
+    //in :判断 一个属性在不在一个对象中
+    console.log("c" in window);//true
+
+    var bb;
+    bb=100;
+    bb="字符串";
+    bb=[];
+
+
+    //let
+    //1.不可以重复声明
+    //2.只声明不赋值 此时变量是undefined
+    //3.使用let声明的变量不会给全局对象window增加一个属性
+    let name="珠峰";
+    //let name="培训";//'name' has already been declared name已经被声明过了
+
+    let ss;
+    ss=1000;
+
+    //window对象中本身就有一个name属性
+
+    console.log("ss" in window);//false
+    console.log(window);
+
+    //const 定义常量
+    //1.不可以重复声明
+    //2.声明的常量不会给全局对象window增加一个属性
+    //3.赋值之后不可以修改
+    //4.一旦声明必须赋值
+    const tt=100;
+    //tt=1000;//Assignment to constant variable
+    //const gg;//Missing initializer in const declaration
+</script>

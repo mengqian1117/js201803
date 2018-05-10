@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+当一个对象获取属性的时候先看是不是自己的私有属性 没有通过__proto__找到所属类的原型上看公有属性有没有,没有继续通过原型的__proto__往上一级找 一直找到Object的原型没有就是undefined,这个查找过程就是原型链
+
+函数既有原型prototype 也有__proto__
+-->
+</body>
+</html>
+<script>
+    function FF() {
+      this.x=1;
+      this.getX=function () {
+        console.log(this.x);
+      }
+    }
+    FF.prototype.x=100;
+    FF.prototype.getX=function () {
+      console.log(this.x);
+    };
+    FF.prototype.y=1000;
+    FF.prototype.getY=function(){};
+    Object.prototype.x="x";
+    Object.prototype.m="m";
+    let f1=new FF;
+    let f2=new FF;
+
+
+    console.log(f1.x);
+    console.log(f1.y);
+    console.log(f1.m);
+
+    f1.getX==f2.getX;//false
+    f1.getY==f2.getY;
+    //f1.__proto__.getY-->FF.prototype.getY
+    //f2.__proto__.getY-->FF.prototype.getY
+
+    FF.prototype.getX==f1.getX;
+
+    FF.prototype.getY==f1.getY;
+
+
+
+
+
+    //Function,Object,Number,Boolean,Array
+    console.log(typeof Object);
+    console.log(Object.prototype.__proto__);//null
+</script>

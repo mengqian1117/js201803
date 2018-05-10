@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <!--<link rel="stylesheet" href="">-->
+    <script src="js/1.js" async></script>
+    <!--async 属性:让DOM加载完成之后再去执行JS文件,只能是外链式使用-->
+</head>
+<body>
+<!--
+js 作用:
+1.操作DOM元素(HTML标签) :增加,删除 ,移动元素,给元素绑定事件,控制元素的样式...
+
+2.操作数据 数据交互 (前后台数据交互)
+
+3.动态效果
+
+-->
+<div id="box1"></div>
+<script>
+ window.onload=function () {
+   console.log(box1);
+   console.log(box2); //box2 is not defined
+ }
+</script>
+<div id="box2"></div>
+<!--<img src="img/1.png" alt="">-->
+
+</body>
+
+</html>
+<script>
+    //为了保证JS获取元素和操作元素不出错 我们将script标签放在最底下
+    //你写在这里实际上浏览器渲染的时候放在了body里面的最底下
+
+    // window.onload=function () {
+    //   //让页面上所有的静态资源(包括HTML和css 以及图片,音频,视频...)全都加载完成之后再无去执行这里,面的JS代码
+    //这个方法只能用一次 如果写了多次后面会将前面覆盖掉
+
+    // }
+</script>

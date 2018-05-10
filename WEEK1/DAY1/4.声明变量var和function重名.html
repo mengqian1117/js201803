@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //遇到var 声明关键字和function声明的关键字重名了,在变量提声阶段 此时是一个变量 值是函数的地址值;但是代码执行的时候如果又给变量赋值了.而且赋的值不是函数 再让变量当做函数执行的时候就会报错
+    f();
+    var f=10;
+    function f() {
+      console.log("珠峰");
+    }
+    f();
+
+
+    console.log(x1);
+    //console.log(x2);
+    var x1=x2=function () {
+      console.log("哈");
+    };
+    x1=10;
+    console.log(x2);
+    console.log(x1);
+
+</script>

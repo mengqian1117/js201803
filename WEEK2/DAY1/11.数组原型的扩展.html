@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //自己在数组的原型上扩展一个去重的方法
+    //参数:无
+    //返回值:原数组
+    //原数组是否改变:改变
+
+    Array.prototype.removel=function () {
+      //this->执行这个方法的那个数组
+      let arr=this.filter((item,index)=>{
+        return !this.slice(0,index).includes(item);
+      });
+      //修改this
+      this.length=arr.length;
+      for (var i=0;i<arr.length;i++){
+        this[i]=arr[i];
+      }
+      return this;
+    };
+    let ary=[1,2,1,21,3,1,4,3,2,23];
+    let ary1=[1,2,1,21,3,1,4,3,2,23];
+    console.log(ary.removel());
+    console.log(ary1.removel());
+    console.log(ary);
+
+
+</script>

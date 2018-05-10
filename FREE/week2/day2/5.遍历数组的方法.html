@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    //1.forEach  没有返回值,原数组不变
+    var ary=[1,13,5,7,8,10,45,27];
+    var ary1=[];
+    var result=ary.forEach(function (item,index,input) {
+      //数组有几项函数就执行多少次
+      //每一次执行都会默认给函数传3个参数
+      // item:当前项
+      // index:当前项的索引
+      // input:原数组
+      if(item>10)ary1.push(item);
+    });
+    console.log(ary1,result);
+
+    //2.map 有返回值 返回一个新的数组,数组中的每一项是参数函数的返回值
+    result=ary.map(function (item,index,input) {
+      return item*10;
+    });
+    console.log(result);// 如果函数没有返回值 result的每一项都是undefined
+
+    //3.find()
+    result=ary.find(function (item,index,input) {
+      //从第一项开始遍历数组 如果当前函数返回true 停止遍历 返回当前项
+      //如果遍历到最后没有找到返回true的 结果就是undefined
+      return item%9==0;
+    });
+    console.log(result);
+
+    //4.findIndex() 跟find一样 只是返回值是索引
+    result=ary.findIndex(function (item,index,input) {
+      //从第一项开始遍历数组 如果当前函数返回true 停止遍历 返回当前项的索引
+      return item%9==0;
+    });
+    console.log(result);
+
+    //5.filter()过滤
+    //将符合要求的内容过滤出来组成新的数组
+    result=ary.filter(function (item,index,input) {
+      //从开始到结尾依次遍历 如果return的是true就留下当前项 false不留下
+      return item%2==0;
+    });
+    console.log(result);
+
+    //6.some() 返回true/false
+    result=ary.some(function (item,index,input) {
+      //只要有一个的return是true 最终的结果就是true
+    });
+    //7.every()返回true/false
+    result=ary.every(function (item,index,input) {
+      //必须每一个的return是true 最终的结果才是true
+    });
+    console.log(Array.prototype);
+
+    //8.reduce 迭代
+    //第二个参数表示初始值
+    //[1,13,5,7,8,10,45,27]
+    result=ary.reduce(function (prev,item) {
+      //prev:上一次执行那个函数的返回值
+      //item:当前项
+      return prev+item;
+    },1000);
+    console.log(result);
+    /*
+    * prev              item         return prev+item
+    * 1                 13                 1+13
+    * 1+13              5                  1+13+5
+    * 1+13+5            7                  1+13+5+7
+    * 1+13+5+7          8                  1+13+5+7+8
+    * 1+13+5+7+8        10                 1+13+5+7+8+10
+    * 1+13+5+7+8+10     45                 1+13+5+7+8+10+45
+    * 1+13+5+7+8+10+45  27                 1+13+5+7+8+10+45+27
+    *
+    * */
+
+    //9.reduceRight 从右往左
+
+    //10.sort()排序  原数组改变
+    //ary.sort() 只能排序10以下的
+    ary.sort(function (a,b) {
+      //return a-b;//升序
+      return b-a;//降序
+    });
+    console.log(ary);
+
+
+
+
+
+</script>

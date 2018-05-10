@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function fn1() {}
+    let name="珠峰";
+    //属性名和变量名重名了可以直接简写方式
+    let obj={
+      fn1,//fn1:fn1
+      name,//name:"珠峰"
+    };
+
+    //数组解构赋值
+    let [x,y]=[1,2];
+
+    //对象的解构赋值 注意 左边一定不要忘了 写let
+    let {name:n,age:a1}={name:"珠峰",age:10};
+    //变量 n,a n对应的值就是name的属性值 a对应的值就是属性名age的值
+    //变量名和属性名相同了可以简写
+    let {age}={age:100};
+    //age变量 对应右边属性名是age的值
+    console.log(age);
+    var aa="AA";
+    var obj1={a:1,aa,bb:"BB"};
+    var {aa:A,bb,a,aa}=obj1;
+    // {aa:A,bb,a,aa}={a:1,aa:"AA",bb:"BB"}
+    // A="AA"
+    // bb="BB"
+    // a=1
+    // aa="AA"
+    console.log(A);
+
+    //数组的扩展运算符
+    let ary1=[1,2];
+    let ary2=[10,20];
+    console.log([...ary1, ...ary2]);//[1,2,10,20]
+
+    //对象的扩展运算符 ES7中提供的
+    let o1={name:"珠峰"};
+    let o2={age:10};
+    let o={...o1,...o2};
+    console.log(o);
+
+    function f1() {}
+    function f2() {}
+    function f3() {}
+    function f4() {}
+    function f5() {}
+    let obj0={f1,f2,f3,f4,f5};
+
+    var {f4,f5}=obj0;
+</script>

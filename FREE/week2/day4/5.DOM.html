@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<div id="B" class="box1 box2 box3 box4">
+    <h1>大家好</h1>
+    <p class="p2">p2</p>
+    <p class="p1">p1</p>
+
+</div>
+</body>
+</html>
+<script>
+  let B = document.getElementById("B");
+  //1.动态创建一个标签
+  //document.createElement("标签名");
+  let box = document.createElement("div");
+  //给元设置一些属性
+  box.id = "box";
+  box.className = "box";
+  box.innerHTML = "我是一个box";
+
+  //2.元素1.appendChild(元素2) 将元素2当做元素1的最后一个孩子
+  B.appendChild(box);
+
+  //特殊 创建一个img
+  let img = new Image();
+  img.src = "img/1.jpg";
+  console.log(img);
+  B.appendChild(img);
+
+
+  //3.删除一个元素
+  // 父级元素.removeChild(元素)
+  B.removeChild(img);
+
+
+  //4.克隆一个元素
+  //元素.cloneNode()  只克隆当前元素本身
+  //元素.cloneNode(true)  将元素的内容一并克隆
+  let box1 = B.cloneNode(true);
+  console.log(box1);
+
+  //5.插入元素
+  //父级元素.insertBefore(元素1,元素2)
+  //将元素1插入到元素2的前面
+  //如果插入的是页面上已经存在的元素只是位置的改变
+
+  let p1 = B.getElementsByClassName("p1")[0];
+  let p2 = B.getElementsByClassName("p2")[0];
+
+  B.insertBefore(p2, p1);
+  //自己写一个方法,往一个元素的后面插入一个元素
+  //就相当给他的弟弟的前面插入  没有弟弟 实际上就是给父级元素的最后面加一个
+  function insertAfter(curEle, ele) {
+    //获取弟弟
+    let next = curEle.nextElementSibling;
+    //判断弟弟有没有
+    if (next) {
+      curEle.parentNode.insertBefore(ele, next)
+    } else {
+      //没有弟弟 说明大当期元素是最后一个 直接给当前元素的父级的最后面添加一个元素 使用 appendChild即可
+      curEle.parentNode.appendChild(ele);
+    }
+  }
+
+
+  console.log(B.className);//"box1 box2 box3 box4"
+  console.log(B.classList);
+  //classList 获取元素的类名集合
+  //add     增加类名  之前有了就默认不加 增加多个使用逗号隔开即可
+  //remove  删除类名
+  B.classList.add("box5");
+  B.classList.add("box1", "box6");
+  B.classList.remove("box1", "box2");
+
+  //以后关于类名的设置 如果类名多余2个了使用classList 少的话直接使用className赋值即可
+
+
+</script>

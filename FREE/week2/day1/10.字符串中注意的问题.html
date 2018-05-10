@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arr=[1,2,3];
+    arr[1]=100;
+    arr[3]=400;
+    arr;//[1,100,3,400];
+    arr.length--;
+    console.log(arr);
+
+    let str="123";
+    str[1]="h";
+    console.log(str);
+    str[3]="4";
+    console.log(str);
+    str.length--;
+    console.log(str);
+
+    //不可以改变原字符串 除非 直接str="1111",给变量重新赋值
+    console.log(Object.getOwnPropertyDescriptor( str,"length"));
+    console.log(Object.getOwnPropertyDescriptor( arr,"length"));
+
+    //字符串中所有的方法都不会改变原字符串
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let obj={0:"哈哈",1:"嘿嘿",2:"呵呵"};
+    console.log(obj[0]);
+    console.log(obj["0"]);
+    let ary=["哈哈","嘿嘿","呵呵"];
+    //索引 0-> 数组的索引就相当于对象的属性名
+    console.log(ary[0]);
+    console.log(ary["0"]);
+
+
+    for(var key in obj){
+      console.log(key);
+    }
+    //for in 也可以遍历数组
+    for(var key in ary){
+      //key :索引
+      console.log(ary[key]);
+    }
+
+
+    let arr=[1,2,12,3,10,15,29,9,5];
+    //{1:1,2:2,12:12,3:3,10:10,,,,,}
+    let o={};
+    let a=[];
+    for (let key in arr) {
+      o[arr[key]]=arr[key]
+    }
+    for (let key in o){
+      a.push(o[key])
+    }
+    console.log(a);
+
+</script>
