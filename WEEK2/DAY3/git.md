@@ -12,9 +12,9 @@ git config --list 查看配置信息
 https://github.com/mengqian1117/js201803.git 
 ####3.fork一份老师的仓库到自己的账号点击fork 
 
-####4.将自己的仓库克隆到本地仓库
-git clone https://github.com/mq0/js201803.git 
-转到文件夹 cd js201714
+####4.将老师的仓库克隆到本地仓库
+git clone https://github.com/mengqian1117/js201803.git 
+转到文件夹 cd js201803
 
 ####5.本地仓库关联老师仓库
 
