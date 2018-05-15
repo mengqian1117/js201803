@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //split 按照指定字符拆分为数组
+    var str="1+2+3+4+5";//["1","2","3","4","5"]
+    //console.log(str.split("+"));
+
+    var str="1+2*3-4/5";//["1","2","3","4","5"]
+    //console.log(str.split(/[+*/-]/g));
+
+    //search
+    //console.log(str.search("1"));//0
+    //console.log(str.search(/\d/g));//0
+
+    //match
+
+    //replace(a,b)
+    //如果想一次全部替换 第一个参数写一个正则并且加上g
+    var str="1+2+3+4+5";
+    //console.log(str.replace(/\+/g, "*"));
+
+    var str="h5:2000,css3:500,js:9800,jq:2000,vue:4000,react:4000,node:5000";
+    //"H5:¥2000,CSS3:¥500,JS:¥9800,JQ:¥2000,VUE:¥4000,REACT:¥4000,NODE:¥5000";
+    reg=/(\w+):(\d+)/g;
+    str=str.replace(reg,function () {
+      //捕获多少次就执行多少次
+      //每一次执行函数都默认传参数
+      //arguments[0]: 大正则捕获的内容
+      //arguments[1]: 第一个分组捕获的内容
+      //arguments[2]: 第二个分组捕获的内容
+      //....
+      //倒数第二项:大正则捕获的内容首字符的索引
+      //最后一项:原字符串
+
+      //console.log(arguments);
+      //return 的值去替换 大正则捕获的内容
+      return arguments[1].toUpperCase()+":¥"+arguments[2];
+      // arguments[0]      arguments[1]          arguments[2]           return
+      //  h5:2000           h5                   2000                   H5 :¥ 2000
+      //  css3:500
+    });
+    console.log(str);
+
+    var str="h5:2000,css3:500,js:9800,jq:2000,vue:4000,react:4000,node:5000";
+    reg=/(\w+):(\d+)/g;
+    str=str.replace(reg,(...arg)=>arg[1].toUpperCase()+":¥"+arg[2]);
+    //str=str.replace(reg,"$1:¥$2");
+    console.log(str);
+</script>

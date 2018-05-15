@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body></body>
+</html>
+<script>
+    //小括号
+    //优先级
+    //分组
+
+    // \1 跟第一个分组(第一个())中匹配的内容一样的字符串
+    // \m 没有底那个分组匹配就是\m
+    var reg=/^\w(\w)\1\w$/;
+    console.log(reg.test("assf"));
+    console.log(reg.test("good"));
+    console.log(reg.test("feel"));
+    //food book cool feet meet look fool wood http zoom root
+
+    reg=/^(3)\1\5$/;
+    console.log(reg.test("33\5"));
+
+</script>

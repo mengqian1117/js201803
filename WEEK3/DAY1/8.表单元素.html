@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+autofocus:自动获取焦点
+autocomplete:自动记录匹配之前填的内容
+pattern :加正则验证
+type:可以默认校验
+novalidate:给form加的 关闭校验
+required:必填的
+disabled:不可用
+-->
+<form action="9.获取数据.html" autocomplete="on">
+    <input type="text" name="user" autofocus pattern="^\\w{6,15}$">
+    <input type="text" name="pw" required>
+    <!--<input type="password">-->
+    <!--<input type="date">-->
+    <!--<input type="color">-->
+    <input type="number" disabled value="1">
+    <input type="email">
+    <!--<input type="url">-->
+    <!--<input type="file">-->
+    <!--<input type="search">-->
+    <!--<input type="button">-->
+    <!--<input type="checkbox">-->
+    <!--<input type="radio">-->
+    <!--<input type="range">-->
+    <input type="reset">
+    <input type="submit">
+</form>
+</body>
+</html>
+<script></script> 

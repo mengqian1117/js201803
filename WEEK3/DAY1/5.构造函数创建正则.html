@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var reg=/^-?([1-9]\d+|\d)(\.\d+)?$/;
+    // //里面的内容写在""中 但是注意原来的\写成\\
+    //第二个参数是修饰符
+    var reg=new RegExp("^-?(\\d|[1-9]\\d+)(\\.\\d+)?$");
+    console.log(reg.test("-13.5"));
+    console.dir(RegExp.$1);//第一个分组捕获的内容  "13"
+    console.dir(RegExp.$2);//第二个分组捕获的内容   "5"
+    console.dir(RegExp.$3);//第三个分组捕获的内容   ""
+
+
+    var str="h5:2000,css3:500,js:9800,jq:2000,vue:4000,rect:4000,node:5000";
+    function getStr(str,s) {
+      let reg=new RegExp(str+":(\\d+)");
+      console.log(reg);
+      return reg.exec(s)[1];
+    }
+    console.log(getStr("h5",str));
+    console.log(getStr("css3",str));
+    console.log(getStr("node",str));
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+exec:返回值是一个数组/null
+1.懒惰性:一次捕获一个 解决懒惰性加全局修饰符g 进行多次捕获
+
+字符串中的方法match
+1).不加g 得到的结果跟exec一样
+2).加g 一次全部捕获到 没有index,input,groups属性
+3).分组情况下 加g 但是不会捕获分组内容
+
+2.贪婪性:一次捕获符合要求最长的 主要是因为量词元字符的存在导致的
+
+
+-->
+</body>
+</html>
+<script>
+  var reg = /\w/g;
+  var str = "asd";
+  // console.log(reg.exec(str));
+  // console.log(reg.exec(str));
+  // console.log(reg.exec(str));
+  // console.log(reg.exec(str));
+  function getExec(str) {
+    let arr = [];
+    let r = reg.exec(str);
+    while (r) {
+      arr.push(r[0]);
+      r = reg.exec(str);
+    }
+    return arr;
+  }
+
+  console.log(getExec(str));
+
+  reg = /\d/;
+  str = "zhufeng2018";
+  console.log(str.match(reg));
+  reg = /\d/g;
+  console.log(str.match(reg));
+
+
+  //捕获分组问题
+  //exec 的返回值就是多几项 有几个分组就多几项
+  //索引0:大正则捕获的内容
+  //    1:第一个分组捕获的内容
+  //    2:第二个
+  //...
+  //index:  大正则捕获的内容首字符符索引
+  //input:  原字符串
+
+  //如果想让分组的内容不被捕获出来加上?:
+
+
+  reg = /(?:[a-z]+)(\d+)/g;
+  str = "h5+css3+es6";
+  console.log(reg.exec(str));
+  console.log(reg.exec(str));
+  console.log(reg.exec(str));
+  console.log(str.match(reg));
+</script>
+<script>
+    //贪婪性
+    //解决贪婪性 在量词元字符后面加? 就是解决量词的取值
+    var reg=/\d+/;
+    str="zhufeng201803";
+    console.log(reg.exec(str));
+    var reg=/\d+?/;
+    console.log(reg.exec(str));
+    var reg=/\d{2,4}/;
+    console.log(reg.exec(str));//"2018"
+    var reg=/\d{2,4}?/;
+    console.log(reg.exec(str));//"20"
+</script>
