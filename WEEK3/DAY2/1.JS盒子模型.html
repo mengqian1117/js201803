@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            background-color: #aa24ff;
+            border: 10px solid gold;
+        }
+    </style>
+</head>
+<body>
+<div id="box">哈哈哈哈哈哈哈哈或或哈哈哈哈哈哈或或或或或或或或或或或哈哈哈哈哈哈哈哈或或或或或或或</div>
+<!--
+JS提供了一系列获取CSS盒子模型的方法和属性
+13个属性
+特点1:数字 而且是在整数 浏览器默认帮你四舍五入了
+特点2:没有单位
+特点3:只能获取不能修改 特例scrollLeft和scrollTop是可以修改的
+
+
+height:
+1.只要是在样式中设置了height 不管内容有没有溢出height都是你设置的样式值
+2.没有设置height 内容的真实高度就是他的height
+
+3个系列
+1.client系列
+clientWidth:  width+左右padding
+clientHeight: height+上下padding
+clientLeft: 左边框的宽度
+clientTop:  上边框的宽度
+
+
+2.offset系列
+offsetWidth:  clientWidth+左右border的宽
+offsetHeight: clientHeight+上下border的宽
+offsetLeft  :左偏移量
+offsetTop   :上偏移
+offsetParent:父级参照物
+
+
+3.scroll系列
+scrollWidth:如果内容没有溢出跟clientWidth一样如果有溢出表示真实内容的宽度+左padding
+scrollHeight:如果内容没有溢出跟clientHeight一样如果有溢出表示真实内容的高度+上padding
+scrollLeft:水平方向滚出的距离
+scrollTop:滚上去的距离
+
+-->
+</body>
+</html>
+<script>
+
+  console.log(box.clientWidth);
+  console.log(box.clientHeight);
+  box.clientWidth=10000;
+  console.log(box.clientWidth);
+  console.log(box.clientLeft);
+  console.log(box.offsetWidth);
+  console.log(box.scrollHeight);
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            overflow: auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">和哈啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊哈啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+</body>
+<!--
+如果加上 overflow: hidden;之后 scrollHeight就变成真实内容的高+上下padding
+
+scrollLeft:水平方向滚出的距离
+scrollTop:滚上去的距离
+
+scrollTop最小值:0
+scrollTop最大值:scrollHeight-clientHeight
+
+如果你设置的值大于最大值默认直接是最大值 小于最小值默认就是最小值
+-->
+</html>
+<script>
+  console.log(box.scrollHeight);
+  console.log(box.clientHeight);
+
+ // setInterval(()=>{
+ //   box.scrollTop+=10;
+ //   console.log(box.scrollTop);
+ // },1000)
+    box.scrollTop=-100000;
+  console.log(box.scrollTop);
+
+</script>

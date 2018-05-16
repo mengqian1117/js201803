@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 500%;
+            background: -webkit-linear-gradient(red, orange, yellow, green, lightskyblue, blue, purple);
+        }
+
+        #go {
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            background-color: #2b7dd1;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="go" style="display: none">go</div>
+</body>
+</html>
+<!--
+
+需求:
+go默认是隐藏的 只要是滚上去的距离大于一屏的高就让go显示
+点击go的时候回到顶部
+
+只要是scrollTop改变,滚动条就会改变我们需要时时监控他的改变 一但发现满足条件就让 go显示
+需要一个可以时时监控滚动条发生改变的事件 onscroll这是一个事件只要滚动条发生改变这个事件就会触发
+-->
+<script>
+  function win(attr, value) {
+    if (value === undefined) {
+      return document.documentElement[attr] || document.body[attr]
+    } else {
+      document.documentElement[attr] = value;
+      document.body[attr] = value;
+    }
+  }
+
+  //获取元素
+  let go = document.getElementById("go");
+  //获取浏览器一屏的高度
+  let H = win("clientHeight");
+  window.onscroll = fn;
+
+  function fn() {
+    //在这里 scrollTop会不断变化 去判断每时每刻的scrollTop是否大于一屏高
+    if (win("scrollTop") >= H) {
+      go.style.display = "block";
+    } else {
+      go.style.display = "none";
+    }
+  };
+  //给go绑定点击事件
+  go.onclick = function () {
+    //先获取点击那一瞬间的scrollTop值
+    let sT = win("scrollTop");
+    //当你点击完go之后 scrollTop不断减小会改变滚动条位置 就会不断触发原来的onscroll事件很浪费性能,所以可以先移除事件赋值为null;等到头儿再还回去
+    window.onscroll=null;
+    let timer = setInterval(() => {
+      //设置定时器每次让他减10;
+      sT -= 100;
+      //临界值判断 如果小于0了直接让同等于0 清除定时器
+      if (sT <= 0) {
+        //在这里将原来的事件赋的函数还给他
+        window.onscroll=fn;
+        clearInterval(timer);
+        win("scrollTop", 0);
+        //到头了后面的代码就不用执行了
+        return;
+      }
+      win("scrollTop", sT);
+    }, 20)
+  }
+</script>

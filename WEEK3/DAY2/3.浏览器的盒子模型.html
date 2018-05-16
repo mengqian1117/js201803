@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+</head>
+<body>
+<!--
+一屏的宽和高
+
+整个网页的宽和高
+
+-->
+</body>
+</html>
+<script>
+    //一屏的宽
+    //document.documentElement.clientWidth||document.body.clientWidth;
+    document.documentElement.clientWidth;
+    //一屏的高
+    //document.documentElement.clientHeight||document.body.clientHeight;
+    document.documentElement.clientHeight;
+
+    //整个网页的宽和高
+    //document.documentElement.scrollWidth||document.body.scrollWidth;
+    document.documentElement.scrollWidth;
+    //document.documentElement.scrollHeight||document.body.scrollHeight;
+    document.documentElement.scrollHeight;
+
+
+    console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
+
+    //写个方法获取浏览器的盒子模型
+    //获取浏览器的高和宽 整个网页的高和宽 滚上去和滚出去的距离
+    function win(attr,value) {
+      if(value===undefined){
+        //此时只传了一个参数说明想要获取
+        return document.documentElement[attr]||document.body[attr];
+      }else {
+        //此时想要设置
+        document.documentElement[attr]=value;
+        document.body[attr]=value;
+      }
+    }
+    win("clientWidth");
+    win("scrollTop",100);
+</script>
