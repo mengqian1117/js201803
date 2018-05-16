@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            background-color: #c9c9c9;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background: url("img/load.jpg") no-repeat center;
+            background-size:100% 100%;
+            margin: 900px auto;
+        }
+        #box img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 3s;
+        }
+    </style>
+</head>
+<body>
+<!--
+项目中为了保证页面的打开速度防止记载过慢网页崩溃,尤其是图片大小比较大 就会容易加载过慢,一般我会做一些延迟加载的处理
+1.首屏的图片一般一开始的时候给他一张占位图(背景图片)背景图片都处理的比较小,等页面其他内容加载完成之后再去加载真实图片,一般有时候会给他一个延迟时间
+2.其他屏 首次加载的时候不加载图片等 这个图片位置漏出来之后再去加载
+
+我们知道只要是图片img的src属性加上地址了就会自动加载,所有写html结构的时候就不要给src赋值一般我们将真实图片的地址给他存在自定义属性上,等到让图片加载的时候再从自定义属性中取出地址值赋给src
+赋值之前需要检验一下这个地址是否正确
+动态创建一个img当做替身 将这个地址值赋给这个替身的src 看看他能不能加载成功,如果成功再去将其赋值给页面上的img
+
+-->
+<div id="box">
+    <img src="" alt="" photo="img/1.jpg">
+</div>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script>
+    let img=box.getElementsByTagName("img")[0];
+    //获取盒子的高
+    let h=box.offsetHeight;
+    //获取一屏的高
+    let H=win("clientHeight");
+    //获取盒子距离body的上偏移量
+    let T=offset(box).top;
+    window.onscroll=function () {
+      //只要scrollTop>=T+h-H 盒子就会漏出来
+      if(win("scrollTop")>=T+h-H){
+        //获取存在自定义属性上的值
+        let src=img.getAttribute("photo");
+        //创建一个img替身
+        let img1=new Image();
+        //将地址值赋值给替身的src
+        img1.src=src;
+        //如果成功就会触发他的一个事件onload
+        img1.onload=function () {
+          //只要是执行这个函数说明图片地址是正确的
+          //只需要将还给页面上的img的src的地址的过程写在这里面即可
+          img.src=src;
+          //opacityChange(img);
+          setTimeout(()=>{
+            img.style.opacity=1;
+          },1000)
+
+        };
+        img1.onerror=function () {
+          //如果地址是错误的加载不出图片就会触发这个事件onerror 执行这个函数
+          img.src="img/3.jpg"
+        }
+      }
+    };
+    //想要谁渐变将其传进来
+    function opacityChange(ele) {
+      let op=0;
+      let timer=setInterval(()=>{
+        op+=0.01;
+        if(op>=1){
+          clearInterval(timer);
+          op=1;
+        }
+        ele.style.opacity=op;
+      },20)
+    }
+</script>

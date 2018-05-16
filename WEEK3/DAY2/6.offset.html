@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201803JS</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            padding: 50px;
+            border: 20px solid red;
+            margin: 100px;
+        }
+        #center{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            padding: 40px;
+            border: 20px solid green;
+        }
+        #inter{
+            width: 50px;
+            height: 50px;
+            margin: 20px;
+            border: 20px solid yellow;
+            /*-webkit-filter: ;*/
+            /*-moz-filter: ;*/
+            /*-ms-filter: ;*/
+        }
+    </style>
+</head>
+<body id="body">
+<!--
+
+当前元素的外边框距离父级参照物的内边框的距离
+offsetLeft  :距离父级参照的左偏移量
+offsetTop   :距离父级参照的上偏移
+offsetParent:父级参照物  从当前元素的父级开始找找到一个定位元素就是他的父级参照,如果一直找到body没有发现定位元素那父级参照物就是body
+
+为了方便以后运用偏移量 我们一般都会找同一个元素作为参照物 使用body
+以后都以body作为父级参照物计算偏移量
+写一个通用的方法计算当前元素距离body的偏移量
+既然这个方法得到两个结果 返回一个对象{left:左偏移量,top:上偏移量}
+
+
+注意 在IE8浏览器中 偏移量包括父级参照物的边框
+navigator.userAgent 获取浏览器的版本信息 是一串字符串
+只要是IE8浏览器就会有 "MS 8"
+-->
+<div id="outer">
+    <div id="center">
+        <div id="inter"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+  console.log(outer.offsetParent.id);
+  console.log(center.offsetParent.id);
+  console.log(inter.offsetParent.id);
+  console.log(center.offsetLeft);
+  console.log(body.offsetParent);
+
+  //curEle:想要获取偏移量的当前元素
+  function offset(curEle) {
+    //先求当前元素的父级参照物
+    let parent = curEle.offsetParent;
+    //获取当前你元素的左偏移量
+    let L=curEle.offsetLeft;
+    //获取当前你元素的上偏移量
+    let T=curEle.offsetTop;
+    //只要parent还不是null就继续找
+    while(parent){
+      //先分别加上父级参照物的左边框和上边框
+      if(!/MS 8/g.test(navigator.userAgent)){//只有不是IE8浏览器的时候
+        L+=parent.clientLeft;
+        T+=parent.clientTop;
+      }
+      //再加上父级参照物偏移量
+      L+=parent.offsetLeft;
+      T+=parent.offsetTop;
+      //再去找父级参照物的父级参照物
+      parent=parent.offsetParent;
+    }
+    return {left:L,top:T}
+  }
+
+  console.log(offset(inter).top);
+  console.log(offset(inter).left);
+  console.log(offset(center).left);
+
+
+  function offset(curEle) {
+    let parent=curEle.offsetParent;
+    let L=curEle.offsetLeft;
+    let T=curEle.offsetTop;
+    while (parent){
+      if(!/MS 8/.test(navigator.userAgent)){
+        L+=parent.clientLeft;
+        T+=parent.clientTop;
+      }
+      L+=parent.offsetLeft;
+      T+=parent.offsetTop;
+      parent=parent.offsetParent;
+    }
+    return {left:L,top:T}
+  }
+</script>
