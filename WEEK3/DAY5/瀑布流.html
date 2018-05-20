@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>珠峰培训2017-10JS</title>
-    <style>
-        html,body,ul,li,img,p{
-            margin: 0;
-            padding: 0;
-        }
-        ul,li{
-            list-style: none;
-        }
-        img{
-            border: none;
-        }
-        body{
-            padding: 10px;
-            background-color: rgba(221,221,221,0.3);
-        }
-        ul{
-            float: left;
-            margin: 0 0.8%;
-            width: 18.4%;
-        }
-        ul li{
-            background-color: #fff;
-            margin: 10px 0;
-            box-shadow: 0px 1px 3px gray;
-            padding-bottom:10px ;
-        }
-        ul li img{
-            width: 100%;
-            opacity: 0;
-            height: 80%;
-        }
-        ul li p{
-            color: #ff4cd4;
-            font-size: 18px;
-            padding: 5px;
-            height: 18%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>珠峰培训2017-10JS</title>
+  <style>
+    html, body, ul, li, img, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul, li {
+      list-style: none;
+    }
+
+    img {
+      border: none;
+    }
+
+    body {
+      padding: 10px;
+      background-color: rgba(221, 221, 221, 0.3);
+    }
+
+    ul {
+      float: left;
+      margin: 0 0.8%;
+      width: 18.4%;
+    }
+
+    ul li {
+      background-color: #fff;
+      margin: 10px 0;
+      box-shadow: 0px 1px 3px gray;
+      padding-bottom: 10px;
+    }
+
+    ul li img {
+      width: 100%;
+      opacity: 0;
+      height: 80%;
+    }
+
+    ul li p {
+      color: #ff4cd4;
+      font-size: 18px;
+      padding: 5px;
+      height: 18%;
+    }
+  </style>
 </head>
 <body>
 <ul></ul>
@@ -49,4 +56,52 @@
 <ul></ul>
 <ul></ul>
 </body>
+<!--
+页面上一共有5个ul
+1.将ul变成一个数组
+2.让这个数组根据每个ul的高度从小到大排序
+3.第一个ul就是最矮的 将其获取出来
+4.给最矮的ul增加一个li 给li随机设置一个高度 250-350
+5.li中有一个img和p img图片也是随机的0-30
+
+第一轮先创建30个li
+
+-->
 </html>
+<script src="js/public.js"></script>
+<script>
+  //获取ul集合
+  let oUl = document.getElementsByTagName("ul");
+  let imgList=document.getElementsByTagName("img");
+  //将oUl变成数组
+  oUl = [...oUl];
+  createLi(30);
+  function createLi(num) {
+    for (let i=0;i<num;i++){
+      //将数组oUl按照高度从小到大排序
+      oUl.sort((a,b)=>{
+        return $.css(a,"height")-$.css(b,"height");
+      });
+      oUl[0].innerHTML+=`<li style="height:${$.getRandom(250,350)}px">
+           <img src="img/${$.getRandom(0,30)}.jpg">
+           <p>喜欢我就收藏吧</p>
+      </li>`;
+    }
+    for (let i=0;i<imgList.length;i++) {
+      fadeIn(imgList[i]);
+    }
+  }
+
+  function fadeIn(img) {
+    let op=0; console.log(img);
+    let timer=setInterval(()=>{
+      op+=0.01;
+      if (op>=1){
+        op=1;
+        clearInterval(timer);
+      }
+     $.css(img,"opacity",op)
+    },20)
+  }
+</script>
+
