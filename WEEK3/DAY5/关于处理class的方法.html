@@ -5,7 +5,92 @@
   <title>201803JS</title>
 </head>
 <body>
+<!--
+1.判断一个元素中有没有某个类名
+hasClass
+参数 1.curEle   当前元素
+参数 2.classStr 某个类名
 
+2.给一个元素增加一个或者多个类名
+addClass
+参数 1:curEle   当前元素
+参数 2:classStr 某个类名
+....
+3.给一个元素删除一个或者多个类名
+removeClass
+参数 1:curEle   当前元素
+参数 2:classStr 某个类名
+....
+4.有的话就是删除没有就是增加
+toggleClass
+参数 1:curEle   当前元素
+参数 2:classStr 某个类名
+-->
+<div id="box" class="box0 box2 box13"></div>
 </body>
 </html>
-<script></script> 
+<script>
+  //获取一个元素的类名 元素.className 获取出来是字符串 判断字符串中有没有这个classStr即可
+  //curEle.className;//"box0 box2 box13"
+  //每一个类名的左边要么是空格要么作为开头  右边要么是空格要么作为结尾
+  //正则需要根据参数classStr来确定的 所以使用构造函数方式创建正则
+  function hasClass(curEle,classStr) {
+    //1.根据参数curEle获取当前元素的className
+    let className=curEle.className;
+    //2.根据参数classStr创建正则
+    ///(^| )box1( |$)/g
+    let reg=new RegExp("(^| )"+classStr+"( |$)","g");
+    //3.判断字符串className是否匹配正则reg
+    return reg.test(className);
+  }
+
+  console.log(hasClass(box, "box1"));
+  console.log(hasClass(box, "box2"));
+
+  function hasClass(curEle,classStr){
+    return new RegExp("(^| )"+classStr+"( |$)","g").test(curEle.className)
+  }
+</script>
+<script>
+  //1.增加类名之前先判断当前元素有没有这个类名 没有才加
+  function addClass(curEle,...arg) {
+    //arg是一个数组 里面存放着所有想要增加的类名 我们就遍历数组
+    arg.forEach((item)=>{
+      //根据hasClass方法判断当前元素有没此类名 没有才加
+      if(!hasClass(curEle,item)){
+        curEle.className+=" "+item;
+      }
+    });
+  }
+  addClass(box,"class1","class2",'class3',"box0")
+</script>
+<script>
+  //"box2 box13 class1 class2 class3"   /box1/
+
+  //必须表示一个类名 左边要么是空格要么作为开头  右边要么是空格要么作为结尾
+  //  /(^| )box2( |$)/ -> " "
+  //替换完成之后有可能首尾有空格 只需要将首尾空格去掉
+  function removeClass(curEle,...arg) {
+    let reg;
+    let className=curEle.className;
+    arg.forEach((item)=>{
+      reg=new RegExp("(^| )"+item+"( |$)","g");
+      className=className.replace(reg," ");
+    });
+    className=className.replace(/^ +| +$/g,"");
+    curEle.className=className;
+  }
+  removeClass(box,"box1","box2","class2");
+</script>
+<script>
+  function toggleClass(curEle,classStr) {
+    if(hasClass(curEle,classStr)){
+      removeClass(curEle,classStr)
+    }else {
+      addClass(curEle,classStr);
+    }
+  }
+
+  toggleClass(box,"class1");
+  toggleClass(box,"class10");
+</script>
