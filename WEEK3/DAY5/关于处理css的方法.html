@@ -3,9 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <title>201803JS</title>
+  <style>
+    #box{
+      height: 100px;
+      background-color: #2b7dd1;
+    }
+  </style>
 </head>
 <body>
-
+<div id="box" style="width: 100px"></div>
 </body>
 </html>
-<script></script> 
+<!--
+1.获取当前元素的样式属性的值
+返回值 获取出的属性值 如果值是以单位(px,pt,pp,em,rem,deg)结尾的去掉单位变成数字
+注意排除复合值 只能是以数字作为开头后面是单位
+getCss(curEle,cssAttr)
+
+
+2.setCss 设置单个样式
+setCss(curEle,cssAttr,cssValue);
+width|height|left|top|bottom|right|(margin|padding)(Left|Top|Bottom|Right);
+
+3.批量设置样式
+setGroupCss(curEle,cssObj)
+cssObj 是一个对象 属性名就是样式属性 属性值就是样式值
+
+
+4.css 设置或者获取样式
+根据参数不同做不同的处理
+arguments.length===3  setCss
+arguments.length===2
+arguments[1]:对象        setGroupCss
+arguments[1]:不是对象     getCss
+-->
+<script>
+  function getCss(curEle,cssAttr) {
+    //获取当前元素curEle的指定样式属性cssAttr的值 也是字符串
+    let val=getComputedStyle(curEle)[cssAttr];
+    //只要是px,pt,pp,em,rem,deg中任意一个作为单位了 就会去掉
+    let reg=/^[+-]?([1-9]\d+|\d)(\.\d+)?(px|pt|pp|em|rem|deg)$/g;
+    if(reg.test(val)){
+      val=parseFloat(val);
+    }
+    return val;
+  }
+
+  console.log(getCss(box, "width"));
+  console.log(getCss(box, "backgroundColor"));
+</script>
+<script>
+  function setCss(curEle,cssAttr,cssValue) {
+    let reg=/^width|height|left|top|bottom|right|(margin|padding)(Left|Top|Bottom|Right)$/;
+    if(reg.test(cssAttr)){
+      //判断cssValue 没有单位加上单位
+      /px/.test(cssValue.toString())?null:cssValue+="px";
+    }
+    curEle.style[cssAttr]=cssValue;
+  }
+
+  setCss(box,"width",300);
+  setCss(box,"backgroundColor","red");
+  setCss(box,"marginLeft",100);
+</script>
+<script>
+  function setGroupCss(curEle,cssObj) {
+    //只需要遍历cssObj 分别将属性名和属性值传给setCss执行即可
+    if(Object.prototype.toString.call(cssObj)=="[object Object]"){
+      for (let key in cssObj){
+        setCss(curEle,key,cssObj[key]);
+      }
+    }
+  }
+  setGroupCss(box,{width:200,height:200,margin:"100px auto",backgroundColor:"green"});
+</script>
+<script>
+  function css(curEle,...arg) {
+    if(arg.length==2){
+      setCss(curEle,arg[0],arg[1]);
+    }else if(arg.length==1){
+      if(Object.prototype.toString.call(arg[0])=="[object Object]"){
+        setGroupCss(curEle,arg[0]);
+      }else {
+        return getCss(curEle,arg[0]);
+      }
+    }
+  }
+</script>
